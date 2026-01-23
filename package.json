@@ -1,0 +1,36 @@
+{
+  "name": "loden-consulting-theme",
+  "version": "1.0.0",
+  "description": "A modern WordPress theme with Tailwind CSS v4, ACF blocks, and WooCommerce support",
+  "main": "index.js",
+  "scripts": {
+    "build:js": "wp-scripts build src/js/frontend.js src/js/block-editor.js --output-path=./js",
+    "build:css": "postcss src/css/app.css -o style.tmp.css && cat src/css/theme-header.css style.tmp.css > style.css && rm style.tmp.css && postcss src/css/editor.css -o style-editor.css",
+    "build": "npm run build:js && npm run build:css",
+    "start:js": "wp-scripts start src/js/frontend.js src/js/block-editor.js --output-path=./js",
+    "start:css": "postcss src/css/app.css -o style.tmp.css --watch & postcss src/css/editor.css -o style-editor.css --watch",
+    "start": "npm-run-all --parallel start:js start:css",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@wordpress/scripts": "^30.0.0",
+    "cssnano": "^7.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "tailwindcss",
+    "acf",
+    "woocommerce"
+  ],
+  "author": "Loden Consulting",
+  "license": "GPL-2.0-or-later"
+}

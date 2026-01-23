@@ -1,0 +1,33 @@
+/* Editor-specific styles */
+@import "tailwindcss";
+@import "./custom/base.css";
+@import "./custom/utilities.css";
+
+/* Theme customization - must match app.css */
+@theme {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-secondary: #64748b;
+  --color-accent: #f59e0b;
+
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@plugin "@tailwindcss/typography";
+
+/* Editor-specific adjustments */
+.editor-styles-wrapper {
+  font-family: var(--font-sans);
+}
+
+/* Ensure blocks have proper spacing in editor */
+.editor-styles-wrapper .wp-block {
+  max-width: 100%;
+}
+
+/* ACF block preview styles */
+.acf-block-preview {
+  padding: 1rem;
+}

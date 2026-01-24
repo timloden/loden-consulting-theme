@@ -180,14 +180,35 @@ function loden_consulting_dequeue_dashicons() {
 add_action( 'wp_enqueue_scripts', 'loden_consulting_dequeue_dashicons' );
 
 /**
- * Disable global styles for classic themes if not using block editor
- * Uncomment if you want to reduce CSS output
+ * Remove WordPress global styles and SVG filters
+ *
+ * This prevents theme.json-generated styles from conflicting with Tailwind CSS.
+ * Design tokens are managed in src/css/config.css instead.
  */
-// function loden_consulting_remove_global_styles() {
-//     remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-//     remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-// }
-// add_action( 'init', 'loden_consulting_remove_global_styles' );
+function loden_consulting_remove_global_styles() {
+	// Remove global styles from frontend.
+	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+
+	// Remove SVG filters that are added to the page.
+	remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+
+	// Remove block library styles if not using core blocks.
+	// Uncomment if you only use ACF blocks:
+	// wp_dequeue_style( 'wp-block-library' );
+	// wp_dequeue_style( 'wp-block-library-theme' );
+
+	// Remove classic theme styles.
+	wp_dequeue_style( 'classic-theme-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'loden_consulting_remove_global_styles', 20 );
+
+/**
+ * Remove global styles from block editor
+ */
+function loden_consulting_remove_editor_global_styles() {
+	remove_action( 'admin_init', 'wp_add_global_styles_for_blocks' );
+}
+add_action( 'after_setup_theme', 'loden_consulting_remove_editor_global_styles' );
 
 /**
  * Optimize heartbeat API

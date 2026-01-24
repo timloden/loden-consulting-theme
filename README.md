@@ -68,7 +68,7 @@ loden-consulting-theme/
 │   ├── css/
 │   │   ├── app.css              # Main Tailwind entry point
 │   │   ├── editor.css           # Editor-specific styles
-│   │   ├── theme-header.css     # WordPress theme header
+│   │   ├── config.css           # Shared design tokens (colors, typography, etc.)
 │   │   └── custom/
 │   │       ├── base.css         # Base/reset styles
 │   │       ├── utilities.css    # Custom utilities
@@ -85,27 +85,37 @@ loden-consulting-theme/
 ├── functions.php                # Main functions file
 ├── style.css                    # Compiled styles (tracked in git)
 ├── style-editor.css             # Compiled editor styles
-├── theme.json                   # Block editor configuration
 ├── package.json                 # npm configuration
-└── postcss.config.js            # PostCSS configuration
+├── postcss.config.js            # PostCSS configuration (includes WP theme header)
+└── postcss.editor.config.js     # PostCSS configuration for editor styles
 ```
 
 ## Features
 
 ### Tailwind CSS v4
 
-The theme uses Tailwind CSS v4 with the `@tailwindcss/postcss` plugin. Custom theme tokens are defined in `src/css/app.css` using the `@theme` directive:
+The theme uses Tailwind CSS v4 with the `@tailwindcss/postcss` plugin. Design tokens are centralized in `src/css/config.css` using the `@theme` directive:
 
 ```css
 @theme {
+  /* Colors */
   --color-primary: #2563eb;
   --color-primary-dark: #1d4ed8;
   --color-secondary: #64748b;
   --color-accent: #f59e0b;
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, ...;
+
+  /* Spacing, Layout, etc. */
+  --container-padding: 1rem;
+  --section-spacing: 4rem;
 }
 ```
 
-The `@tailwindcss/typography` plugin is included for prose styling.
+This config file is imported by both `app.css` and `editor.css` to keep frontend and editor styles in sync. The `@tailwindcss/typography` plugin is included for prose styling.
+
+**Note:** WordPress global styles (`global-styles-inline-css`) are disabled to prevent conflicts with Tailwind. All styling is managed through Tailwind utilities and the config file.
 
 ### ACF Blocks
 
@@ -142,6 +152,7 @@ WooCommerce template overrides can be placed in the `woocommerce/` directory.
 
 Built-in optimizations include:
 
+- WordPress global styles removal (prevents Tailwind conflicts)
 - Emoji script removal
 - jQuery Migrate removal on frontend
 - Unnecessary meta tag cleanup (RSD, WLW, shortlink, generator)
@@ -175,13 +186,19 @@ Add custom CSS to the appropriate file in `src/css/custom/`:
 
 Edit `src/js/frontend.js` for frontend functionality or `src/js/block-editor.js` for editor customizations.
 
-### Theme Colors
+### Design Tokens (Colors, Typography, Spacing)
 
-Update the color variables in:
+All design tokens are defined in `src/css/config.css`. This single file controls:
 
-1. `src/css/app.css` - Tailwind theme tokens
-2. `src/css/editor.css` - Editor theme tokens (keep in sync)
-3. `theme.json` - Block editor color palette
+- Colors (primary, secondary, accent, semantic colors)
+- Typography (font families, sizes)
+- Spacing (container padding, section spacing)
+- Layout (container widths, content width)
+- Borders & radius
+- Shadows
+- Transitions
+
+Both `app.css` and `editor.css` import this file, so changes are automatically reflected in both frontend and block editor.
 
 ### Navigation Menus
 

@@ -31,7 +31,7 @@
 						the_custom_logo();
 					else :
 						?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-xl font-bold text-gray-900 hover:text-primary transition-colors" rel="home">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-xl font-bold text-gray-900 hover:text-black transition-colors" rel="home">
 							<?php bloginfo( 'name' ); ?>
 						</a>
 						<?php

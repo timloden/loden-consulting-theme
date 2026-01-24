@@ -1,1 +1,208 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",()=>{!function(){const e=document.querySelector("[data-menu-toggle]"),t=document.querySelector("[data-mobile-menu]");e&&t&&(e.addEventListener("click",()=>{const n="true"===e.getAttribute("aria-expanded");e.setAttribute("aria-expanded",!n),t.classList.toggle("hidden"),document.body.classList.toggle("overflow-hidden",!n)}),document.addEventListener("keydown",n=>{"Escape"!==n.key||t.classList.contains("hidden")||(e.setAttribute("aria-expanded","false"),t.classList.add("hidden"),document.body.classList.remove("overflow-hidden"),e.focus())}))}(),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){const t=this.getAttribute("href");if("#"===t||!t)return;const n=document.querySelector(t);n&&(e.preventDefault(),n.scrollIntoView({behavior:"smooth",block:"start"}),history.pushState(null,null,t),n.setAttribute("tabindex","-1"),n.focus({preventScroll:!0}))})}),function(){if("loading"in HTMLImageElement.prototype)document.querySelectorAll('img[loading="lazy"]').forEach(e=>{e.dataset.src&&(e.src=e.dataset.src)});else{const e=document.querySelectorAll('img[loading="lazy"]');if("IntersectionObserver"in window){const t=new IntersectionObserver((e,t)=>{e.forEach(e=>{if(e.isIntersecting){const n=e.target;n.dataset.src&&(n.src=n.dataset.src),n.removeAttribute("loading"),t.unobserve(n)}})});e.forEach(e=>t.observe(e))}else e.forEach(e=>{e.dataset.src&&(e.src=e.dataset.src)})}}()})})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+/*!****************************!*\
+  !*** ./src/js/frontend.js ***!
+  \****************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   debounce: () => (/* binding */ debounce),
+/* harmony export */   throttle: () => (/* binding */ throttle)
+/* harmony export */ });
+/**
+ * Frontend JavaScript
+ *
+ * Main JavaScript file for the theme frontend.
+ */
+
+// Import WordPress dependencies if needed
+// import domReady from '@wordpress/dom-ready';
+
+/**
+ * Initialize theme functionality when DOM is ready
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  initMobileMenu();
+  initSmoothScroll();
+  initLazyLoading();
+});
+
+/**
+ * Mobile menu toggle functionality
+ */
+function initMobileMenu() {
+  const menuToggle = document.querySelector('[data-menu-toggle]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+  if (!menuToggle || !mobileMenu) {
+    return;
+  }
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    mobileMenu.classList.toggle('hidden');
+
+    // Toggle body scroll
+    document.body.classList.toggle('overflow-hidden', !isExpanded);
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      menuToggle.focus();
+    }
+  });
+}
+
+/**
+ * Smooth scroll for anchor links
+ */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+
+      // Skip if it's just "#" or empty
+      if (targetId === '#' || !targetId) {
+        return;
+      }
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        // Update URL without jumping
+        history.pushState(null, null, targetId);
+
+        // Set focus for accessibility
+        targetElement.setAttribute('tabindex', '-1');
+        targetElement.focus({
+          preventScroll: true
+        });
+      }
+    });
+  });
+}
+
+/**
+ * Lazy loading enhancement for images
+ * Note: Modern browsers support native lazy loading, this adds fallback behavior
+ */
+function initLazyLoading() {
+  // Check if native lazy loading is supported
+  if ('loading' in HTMLImageElement.prototype) {
+    // Native lazy loading is supported
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      // Ensure data-src is applied if present
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+      }
+    });
+  } else {
+    // Fallback for older browsers using Intersection Observer
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+            }
+            img.removeAttribute('loading');
+            observer.unobserve(img);
+          }
+        });
+      });
+      images.forEach(img => imageObserver.observe(img));
+    } else {
+      // Final fallback: just load all images
+      images.forEach(img => {
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+        }
+      });
+    }
+  }
+}
+
+/**
+ * Utility: Debounce function for performance
+ *
+ * @param {Function} func - Function to debounce
+ * @param {number} wait - Wait time in milliseconds
+ * @return {Function} Debounced function
+ */
+function debounce(func, wait = 100) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+/**
+ * Utility: Throttle function for performance
+ *
+ * @param {Function} func - Function to throttle
+ * @param {number} limit - Limit in milliseconds
+ * @return {Function} Throttled function
+ */
+function throttle(func, limit = 100) {
+  let inThrottle;
+  return function executedFunction(...args) {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
+    }
+  };
+}
+/******/ })()
+;
+//# sourceMappingURL=frontend.js.map

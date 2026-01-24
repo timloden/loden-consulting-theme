@@ -1,9 +1,6 @@
 # Dependencies
 node_modules/
 
-# Temporary build files
-style.tmp.css
-
 # OS files
 .DS_Store
 Thumbs.db

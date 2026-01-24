@@ -130,7 +130,54 @@
 }
 
 /* ==========================================================================
-   Typography Plugin Configuration
+   Plugins
    ========================================================================== */
 
 @plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes: light --default, dark;
+}
+
+/* ==========================================================================
+   daisyUI Theme Customization
+
+   Override daisyUI theme colors to match brand.
+   These CSS variables are used by daisyUI components.
+   See: https://daisyui.com/docs/colors/
+   ========================================================================== */
+
+[data-theme="light"],
+:root {
+  /* Brand colors mapped to daisyUI semantic colors */
+  --p: 37.7% 0.215 261.1;           /* primary - oklch format */
+  --pc: 98% 0.005 261.1;            /* primary-content */
+  --s: 55.4% 0.046 257.4;           /* secondary */
+  --sc: 98% 0.005 257.4;            /* secondary-content */
+  --a: 75% 0.183 55.9;              /* accent (amber) */
+  --ac: 27% 0.077 55.9;             /* accent-content */
+  --n: 32% 0.034 264.5;             /* neutral */
+  --nc: 98% 0.005 264.5;            /* neutral-content */
+  --b1: 100% 0 0;                   /* base-100 (background) */
+  --b2: 96.7% 0.003 264.5;          /* base-200 */
+  --b3: 92.8% 0.006 264.5;          /* base-300 */
+  --bc: 21% 0.034 264.7;            /* base-content */
+  --su: 76.8% 0.189 147.5;          /* success */
+  --suc: 27% 0.077 147.5;           /* success-content */
+  --wa: 75% 0.183 55.9;             /* warning */
+  --wac: 27% 0.077 55.9;            /* warning-content */
+  --er: 62.8% 0.257 29.2;           /* error */
+  --erc: 98% 0.005 29.2;            /* error-content */
+  --in: 62.3% 0.214 259.1;          /* info */
+  --inc: 98% 0.005 259.1;           /* info-content */
+
+  /* Component styling */
+  --rounded-box: 0.5rem;
+  --rounded-btn: 0.375rem;
+  --rounded-badge: 9999px;
+  --animation-btn: 0.25s;
+  --animation-input: 0.2s;
+  --btn-focus-scale: 0.95;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.375rem;
+}

@@ -1,6 +1,6 @@
 # Loden Consulting Theme
 
-A modern WordPress theme built with Tailwind CSS v4, ACF blocks support, WooCommerce compatibility, and performance optimizations.
+A modern WordPress theme built with Tailwind CSS v4, daisyUI components, ACF blocks support, WooCommerce compatibility, and performance optimizations.
 
 ## Requirements
 
@@ -116,6 +116,61 @@ The theme uses Tailwind CSS v4 with the `@tailwindcss/postcss` plugin. Design to
 This config file is imported by both `app.css` and `editor.css` to keep frontend and editor styles in sync. The `@tailwindcss/typography` plugin is included for prose styling.
 
 **Note:** WordPress global styles (`global-styles-inline-css`) are disabled to prevent conflicts with Tailwind. All styling is managed through Tailwind utilities and the config file.
+
+### daisyUI Components
+
+[daisyUI](https://daisyui.com/) is included as a component library built on Tailwind CSS. It provides pre-styled, customizable components.
+
+**Available components include:**
+- Buttons, badges, cards, alerts
+- Modals, drawers, dropdowns
+- Forms, inputs, selects
+- Navigation, tabs, breadcrumbs
+- And many more...
+
+**Example usage in PHP templates:**
+
+```php
+<!-- Button -->
+<button class="btn btn-primary">Click me</button>
+
+<!-- Card -->
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">Card Title</h2>
+    <p>Card content goes here.</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Action</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<button class="btn" onclick="openModal('my-modal')">Open Modal</button>
+<dialog id="my-modal" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Modal content here.</p>
+    <div class="modal-action">
+      <button class="btn" onclick="closeModal('my-modal')">Close</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+```
+
+**JavaScript helpers available globally:**
+- `openModal(id)` / `closeModal(id)` - Control modal dialogs
+- `openDrawer(id)` / `closeDrawer(id)` / `toggleDrawer(id)` - Control drawers
+- `toggleTheme()` / `setTheme('light'|'dark')` - Theme switching
+
+**Theme customization:**
+
+daisyUI theme colors are configured in `src/css/config.css` to match your brand colors. Light and dark themes are enabled by default.
+
+See [daisyUI documentation](https://daisyui.com/components/) for all available components.
 
 ### ACF Blocks
 

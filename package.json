@@ -33,5 +33,8 @@
     "woocommerce"
   ],
   "author": "Loden Consulting",
-  "license": "GPL-2.0-or-later"
+  "license": "GPL-2.0-or-later",
+  "dependencies": {
+    "daisyui": "^5.5.14"
+  }
 }

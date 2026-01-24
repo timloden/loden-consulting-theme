@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initSmoothScroll();
   initLazyLoading();
+  initDaisyUI();
 });
 
 /**
@@ -162,4 +163,209 @@ export function throttle(func, limit = 100) {
       }, limit);
     }
   };
+}
+
+/* ==========================================================================
+   daisyUI Helpers
+   ========================================================================== */
+
+/**
+ * Initialize daisyUI interactive components
+ */
+function initDaisyUI() {
+  initModals();
+  initDropdowns();
+  initDrawers();
+  initThemeToggle();
+}
+
+/**
+ * Modal helpers using native <dialog> element
+ *
+ * Usage:
+ * <button onclick="window.openModal('my-modal')">Open</button>
+ * <dialog id="my-modal" class="modal">
+ *   <div class="modal-box">
+ *     <h3>Title</h3>
+ *     <p>Content</p>
+ *     <div class="modal-action">
+ *       <button onclick="window.closeModal('my-modal')" class="btn">Close</button>
+ *     </div>
+ *   </div>
+ *   <form method="dialog" class="modal-backdrop">
+ *     <button>close</button>
+ *   </form>
+ * </dialog>
+ */
+function initModals() {
+  // Global modal open function
+  window.openModal = (id) => {
+    const modal = document.getElementById(id);
+    if (modal && modal.tagName === 'DIALOG') {
+      modal.showModal();
+    }
+  };
+
+  // Global modal close function
+  window.closeModal = (id) => {
+    const modal = document.getElementById(id);
+    if (modal && modal.tagName === 'DIALOG') {
+      modal.close();
+    }
+  };
+
+  // Close modal on escape key (native dialog behavior, but ensure cleanup)
+  document.querySelectorAll('dialog.modal').forEach((modal) => {
+    modal.addEventListener('close', () => {
+      // Any cleanup needed when modal closes
+      document.body.classList.remove('overflow-hidden');
+    });
+
+    modal.addEventListener('cancel', (e) => {
+      // Handle escape key
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
+}
+
+/**
+ * Dropdown enhancement - close on outside click
+ *
+ * Usage:
+ * <div class="dropdown" data-dropdown>
+ *   <label tabindex="0" class="btn m-1">Click</label>
+ *   <ul tabindex="0" class="dropdown-content menu">
+ *     <li><a>Item 1</a></li>
+ *   </ul>
+ * </div>
+ */
+function initDropdowns() {
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(e.target)) {
+        // Remove focus to close the dropdown
+        const focusable = dropdown.querySelector('[tabindex]');
+        if (focusable && document.activeElement === focusable) {
+          focusable.blur();
+        }
+      }
+    });
+  });
+
+  // Close dropdowns on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeDropdown = document.activeElement?.closest('.dropdown');
+      if (activeDropdown) {
+        document.activeElement.blur();
+      }
+    }
+  });
+}
+
+/**
+ * Drawer helpers for mobile navigation
+ *
+ * Usage:
+ * <div class="drawer">
+ *   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+ *   <div class="drawer-content">
+ *     <label for="my-drawer" class="btn btn-primary drawer-button">Open</label>
+ *   </div>
+ *   <div class="drawer-side">
+ *     <label for="my-drawer" class="drawer-overlay"></label>
+ *     <ul class="menu">...</ul>
+ *   </div>
+ * </div>
+ */
+function initDrawers() {
+  // Global drawer toggle functions
+  window.openDrawer = (id) => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = true;
+    }
+  };
+
+  window.closeDrawer = (id) => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = false;
+    }
+  };
+
+  window.toggleDrawer = (id) => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = !toggle.checked;
+    }
+  };
+
+  // Close drawer on escape key
+  document.querySelectorAll('.drawer-toggle').forEach((toggle) => {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.checked) {
+        toggle.checked = false;
+      }
+    });
+  });
+}
+
+/**
+ * Theme toggle (light/dark mode)
+ *
+ * Usage:
+ * <button onclick="window.toggleTheme()" class="btn">Toggle Theme</button>
+ *
+ * Or with a swap component:
+ * <label class="swap swap-rotate">
+ *   <input type="checkbox" data-theme-toggle />
+ *   <svg class="swap-on ...">sun icon</svg>
+ *   <svg class="swap-off ...">moon icon</svg>
+ * </label>
+ */
+function initThemeToggle() {
+  // Check for saved theme preference or default to system preference
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+  // Apply initial theme
+  document.documentElement.setAttribute('data-theme', initialTheme);
+
+  // Global theme toggle function
+  window.toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Update any theme toggle checkboxes
+    document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
+      toggle.checked = newTheme === 'dark';
+    });
+  };
+
+  // Global set theme function
+  window.setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  // Initialize theme toggle checkboxes
+  document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
+    toggle.checked = initialTheme === 'dark';
+    toggle.addEventListener('change', () => {
+      window.toggleTheme();
+    });
+  });
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    }
+  });
 }

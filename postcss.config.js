@@ -3,7 +3,7 @@ Theme Name: Loden Consulting
 Theme URI: https://lodenconsulting.com
 Author: Loden Consulting
 Author URI: https://lodenconsulting.com
-Description: A modern WordPress theme with Tailwind CSS v4, ACF blocks, and WooCommerce support.
+Description: A modern WordPress theme with Tailwind CSS v4, daisyUI components, ACF blocks, and WooCommerce support.
 Version: 1.0.0
 Requires at least: 6.0
 Tested up to: 6.7

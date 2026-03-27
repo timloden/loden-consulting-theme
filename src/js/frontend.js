@@ -53,32 +53,57 @@ function initHeaderScroll() {
 }
 
 /**
- * Mobile menu toggle functionality
+ * Mobile menu — accordion sub-menus + drawer reset on close.
+ *
+ * The full-screen panel is opened/closed by the daisyUI drawer checkbox
+ * (#mobile-nav). This function handles:
+ *  1. Accordion toggles for items with sub-menus (.mobile-nav-toggle).
+ *  2. Collapsing all open sub-menus when the drawer closes (so the menu
+ *     is always in its default state next time it opens).
+ *  3. Closing the drawer on Escape key.
  */
 function initMobileMenu() {
-  const menuToggle = document.querySelector('[data-menu-toggle]');
-  const mobileMenu = document.querySelector('[data-mobile-menu]');
+  // ── Accordion toggles ──────────────────────────────────────────────────────
+  document.querySelectorAll('.mobile-nav-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      const item = toggle.closest('.mobile-nav-item');
 
-  if (!menuToggle || !mobileMenu) {
-    return;
-  }
+      // Close any other open sibling (accordion — only one open at a time).
+      document.querySelectorAll('.mobile-nav-item.is-open').forEach((openItem) => {
+        if (openItem !== item) {
+          openItem.classList.remove('is-open');
+          const siblingToggle = openItem.querySelector('.mobile-nav-toggle');
+          if (siblingToggle) siblingToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
 
-  menuToggle.addEventListener('click', () => {
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', !isExpanded);
-    mobileMenu.classList.toggle('hidden');
-
-    // Toggle body scroll
-    document.body.classList.toggle('overflow-hidden', !isExpanded);
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      item.classList.toggle('is-open', !isOpen);
+    });
   });
 
-  // Close menu on escape key
+  // ── Reset state when drawer closes ─────────────────────────────────────────
+  const drawerToggle = document.getElementById('mobile-nav');
+  if (drawerToggle) {
+    drawerToggle.addEventListener('change', () => {
+      if (!drawerToggle.checked) {
+        // Collapse all open sub-menus so the menu is fresh on next open.
+        document.querySelectorAll('.mobile-nav-item.is-open').forEach((item) => {
+          item.classList.remove('is-open');
+          const toggle = item.querySelector('.mobile-nav-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  }
+
+  // ── Escape key closes the drawer ───────────────────────────────────────────
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-      menuToggle.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-      menuToggle.focus();
+    if (e.key === 'Escape' && drawerToggle?.checked) {
+      drawerToggle.checked = false;
+      // Trigger the change event manually so the reset above runs.
+      drawerToggle.dispatchEvent(new Event('change'));
     }
   });
 }

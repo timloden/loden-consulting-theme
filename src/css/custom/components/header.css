@@ -59,28 +59,6 @@
   color: var(--color-accent);
 }
 
-/* ==========================================================================
-   Mobile drawer — side panel nav links
-   ========================================================================== */
-
-.mobile-nav-link {
-  display: block;
-  padding: 0.75rem 1rem;
-  font-family: var(--font-sans);
-  font-size: var(--font-size-p2);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--color-simple-black);
-  border-radius: var(--radius-md);
-  transition: background-color var(--transition-fast) ease,
-              color var(--transition-fast) ease;
-}
-
-.mobile-nav-link:hover {
-  background-color: var(--color-sky-blue-30);
-  color: var(--color-primary);
-}
-
 /* Mobile call button — gold-glimmer in both header states */
 .mobile-call-btn {
   color: var(--color-gold-glimmer);
@@ -98,11 +76,160 @@
   color: var(--color-simple-black);
 }
 
-/* Mobile divider between groups */
-.mobile-nav-divider {
-  height: 1px;
-  background-color: var(--color-sky-blue);
-  margin: 0.5rem 0;
+/* ==========================================================================
+   Full-screen mobile menu panel
+   ========================================================================== */
+
+.mobile-menu-panel {
+  width: 100vw;
+  height: 100dvh;          /* dynamic viewport height — handles mobile chrome */
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 2rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Panel header row: logo + close */
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+
+/* Close button */
+.mobile-menu-close {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: opacity var(--transition-fast) ease;
+}
+
+.mobile-menu-close:hover {
+  opacity: 0.8;
+}
+
+.mobile-menu-close span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+}
+
+/* Nav wrapper */
+.mobile-menu-nav {
+  /* no flex: 1 — CTA flows directly below the last menu item */
+}
+
+/* CTA — sits directly below the nav list */
+.mobile-menu-cta {
+  padding-top: 2rem;
+}
+
+/* ==========================================================================
+   Top-level nav items
+   ========================================================================== */
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Shared styles for top-level <a> and <button> */
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h5);    /* 24px */
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Arrow icon — opacity fades on hover; text does not */
+.mobile-nav-arrow-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-left: 0.75rem;
+  transition: opacity var(--transition-fast) ease;
+}
+
+.mobile-nav-link:hover .mobile-nav-arrow-wrap {
+  opacity: 0.6;
+}
+
+.mobile-nav-arrow-icon {
+  color: white;
+  transition: transform var(--transition-normal) ease;
+}
+
+/* Rotate arrow when sub-menu is open */
+.mobile-nav-item.is-open > .mobile-nav-toggle .mobile-nav-arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Sub-menu (depth 1) — accordion collapse/expand
+   ========================================================================== */
+
+.mobile-sub-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal) ease;
+}
+
+.mobile-nav-item.is-open > .mobile-sub-nav {
+  max-height: 800px;   /* large enough for any real-world sub-menu */
+}
+
+.mobile-sub-link {
+  display: block;
+  padding: 0.625rem 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p2);    /* 19px */
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color var(--transition-fast) ease;
+}
+
+.mobile-sub-link:hover {
+  color: white;
+}
+
+/* Extra bottom padding after last sub-item */
+.mobile-sub-item:last-child .mobile-sub-link {
+  padding-bottom: 1rem;
+}
+
+/* Remove border from last top-level item */
+.mobile-nav-item:last-child > .mobile-nav-link {
+  border-bottom: none;
 }
 
 /* ==========================================================================

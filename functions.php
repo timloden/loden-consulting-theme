@@ -1,37 +1,40 @@
 <?php
+
 /**
  * Loden Consulting Theme functions and definitions
  *
  * @package Loden_Consulting
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
 /**
  * Theme version
  */
-define( 'LODEN_CONSULTING_VERSION', '1.0.0' );
+define('LODEN_CONSULTING_VERSION', '1.0.0');
 
 /**
  * Theme setup
  */
-function loden_consulting_setup() {
+function loden_consulting_setup()
+{
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 
 	// Let WordPress manage the document title.
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 
 	// Enable support for Post Thumbnails on posts and pages.
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails');
 
 	// Register navigation menus.
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary Menu', 'loden-consulting' ),
-			'footer'  => esc_html__( 'Footer Menu', 'loden-consulting' ),
+			'primary' => esc_html__('Primary Menu', 'loden-consulting'),
+			'footer'  => esc_html__('Footer Menu', 'loden-consulting'),
+			'mobile'  => esc_html__('Mobile Menu', 'loden-consulting'),
 		)
 	);
 
@@ -61,20 +64,20 @@ function loden_consulting_setup() {
 	);
 
 	// Add support for editor styles.
-	add_theme_support( 'editor-styles' );
-	add_editor_style( 'style-editor.css' );
+	add_theme_support('editor-styles');
+	add_editor_style('style-editor.css');
 
 	// Add support for responsive embeds.
-	add_theme_support( 'responsive-embeds' );
+	add_theme_support('responsive-embeds');
 
 	// Add support for wide and full width alignments.
-	add_theme_support( 'align-wide' );
+	add_theme_support('align-wide');
 
 	// Add support for custom spacing.
-	add_theme_support( 'custom-spacing' );
+	add_theme_support('custom-spacing');
 
 	// Add support for custom line height.
-	add_theme_support( 'custom-line-height' );
+	add_theme_support('custom-line-height');
 
 	// Disable custom colors in block editor (use theme colors).
 	// add_theme_support( 'disable-custom-colors' );
@@ -82,25 +85,27 @@ function loden_consulting_setup() {
 	// Disable custom font sizes (use theme sizes).
 	// add_theme_support( 'disable-custom-font-sizes' );
 }
-add_action( 'after_setup_theme', 'loden_consulting_setup' );
+add_action('after_setup_theme', 'loden_consulting_setup');
 
 /**
  * Set the content width in pixels.
  */
-function loden_consulting_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'loden_consulting_content_width', 1280 );
+function loden_consulting_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('loden_consulting_content_width', 1280);
 }
-add_action( 'after_setup_theme', 'loden_consulting_content_width', 0 );
+add_action('after_setup_theme', 'loden_consulting_content_width', 0);
 
 /**
  * Register widget areas.
  */
-function loden_consulting_widgets_init() {
+function loden_consulting_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'loden-consulting' ),
+			'name'          => esc_html__('Sidebar', 'loden-consulting'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'loden-consulting' ),
+			'description'   => esc_html__('Add widgets here.', 'loden-consulting'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -110,9 +115,9 @@ function loden_consulting_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer 1', 'loden-consulting' ),
+			'name'          => esc_html__('Footer 1', 'loden-consulting'),
 			'id'            => 'footer-1',
-			'description'   => esc_html__( 'First footer widget area.', 'loden-consulting' ),
+			'description'   => esc_html__('First footer widget area.', 'loden-consulting'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -122,9 +127,9 @@ function loden_consulting_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer 2', 'loden-consulting' ),
+			'name'          => esc_html__('Footer 2', 'loden-consulting'),
 			'id'            => 'footer-2',
-			'description'   => esc_html__( 'Second footer widget area.', 'loden-consulting' ),
+			'description'   => esc_html__('Second footer widget area.', 'loden-consulting'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -134,9 +139,9 @@ function loden_consulting_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer 3', 'loden-consulting' ),
+			'name'          => esc_html__('Footer 3', 'loden-consulting'),
 			'id'            => 'footer-3',
-			'description'   => esc_html__( 'Third footer widget area.', 'loden-consulting' ),
+			'description'   => esc_html__('Third footer widget area.', 'loden-consulting'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -144,11 +149,12 @@ function loden_consulting_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'loden_consulting_widgets_init' );
+add_action('widgets_init', 'loden_consulting_widgets_init');
 
 /**
  * Include files
  */
+require get_template_directory() . '/inc/class-mobile-nav-walker.php';
 require get_template_directory() . '/inc/assets.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
@@ -159,6 +165,6 @@ require get_template_directory() . '/inc/acf-blocks.php';
 /**
  * WooCommerce support
  */
-if ( class_exists( 'WooCommerce' ) ) {
+if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }

@@ -12,11 +12,69 @@
  */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
+  initMegaMenu();
   initHeaderScroll();
   initSmoothScroll();
   initLazyLoading();
   initDaisyUI();
 });
+
+/**
+ * Desktop mega menu
+ *
+ * Opens/closes .mega-menu-panel by toggling .is-open on the parent <li>.
+ * Panels open on click and close when clicking the trigger again, clicking
+ * outside, or pressing Escape.
+ */
+function initMegaMenu() {
+  const items = document.querySelectorAll('.mega-menu-item.has-mega-menu');
+  if (!items.length) return;
+
+  const closeItem = (item) => {
+    item.classList.remove('is-open');
+    const trigger = item.querySelector('.mega-menu-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  };
+
+  const openItem = (item) => {
+    // Close any other open panels first.
+    items.forEach((other) => {
+      if (other !== item) closeItem(other);
+    });
+    item.classList.add('is-open');
+    const trigger = item.querySelector('.mega-menu-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+  };
+
+  items.forEach((item) => {
+    const trigger = item.querySelector('.mega-menu-trigger');
+
+    // Click trigger toggles the panel.
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        item.classList.contains('is-open') ? closeItem(item) : openItem(item);
+      });
+
+      // Keyboard: Enter / Space already fires click on <button>; Escape closes.
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeItem(item);
+      });
+    }
+  });
+
+  // Click outside closes all open panels.
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.mega-menu-item')) {
+      items.forEach(closeItem);
+    }
+  });
+
+  // Escape key anywhere closes all open panels.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') items.forEach(closeItem);
+  });
+}
 
 /**
  * Header scroll behaviour

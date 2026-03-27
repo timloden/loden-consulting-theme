@@ -1,0 +1,335 @@
+/**
+ * Mega Menu
+ *
+ * Full-width dropdown panel for desktop primary navigation.
+ * Panels are positioned fixed below the header so they span the full
+ * viewport width regardless of where the triggering nav item sits.
+ *
+ * Two layout variants (controlled via ACF "Mega Menu Type"):
+ *   .mega-menu-right                 — icon cards only
+ *   .mega-menu-right.has-text-links  — icon cards + text links (2-column right panel)
+ *
+ * JS (frontend.js → initMegaMenu) adds/removes .is-open on the parent <li>.
+ */
+
+/* ==========================================================================
+   Trigger button — inherits .nav-link, adds chevron rotation
+   ========================================================================== */
+
+.mega-menu-trigger {
+  /* Inherits all .nav-link styles from header.css */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mega-trigger-chevron {
+  transition: transform var(--transition-normal) ease;
+}
+
+.mega-menu-item.is-open .mega-trigger-chevron {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Panel — full-width, fixed below header
+   ========================================================================== */
+
+.mega-menu-panel {
+  position: fixed;
+  top: 80px;           /* desktop header height — matches h-20 in header.php */
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  /* Bottom-only shadow — clip-path removes side/top bleed */
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.15);
+  clip-path: inset(0 0 -40px 0);
+  border-bottom: 11px solid var(--color-primary);
+  z-index: 49;         /* below header z-50 */
+
+  /* Hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition-normal) ease,
+              transform var(--transition-normal) ease,
+              visibility var(--transition-normal) ease;
+}
+
+.mega-menu-item.is-open .mega-menu-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Layout — 1/3 left + 2/3 right grid
+   ========================================================================== */
+
+.mega-menu-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  padding: 2.5rem 0 3rem;
+  align-items: start;
+}
+
+/* ==========================================================================
+   Left panel (1/3) — title, subtitle, CTA
+   ========================================================================== */
+
+.mega-menu-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 2rem;
+  border-right: 1px solid var(--color-sky-blue);
+  height: 100%;
+}
+
+.mega-left-title {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;               /* 28px */
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.mega-left-subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p4);   /* 13px */
+  font-weight: 400;
+  line-height: 1.5;
+  color: #737373;
+  margin: 0;
+  flex: 1;
+}
+
+/* ==========================================================================
+   CTA Card — styled card replacing the plain link-arrow CTA
+   ========================================================================== */
+
+.mega-left-cta-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  margin-top: auto;
+  transition: filter var(--transition-fast) ease,
+              transform var(--transition-fast) ease;
+}
+
+.mega-left-cta-card:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.mega-cta-card-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mega-cta-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mega-cta-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mega-cta-card-title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p3);   /* 16px */
+  font-weight: 700;
+  color: var(--color-simple-black);
+  line-height: 1.2;
+}
+
+.mega-cta-card-subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p4);   /* 13px */
+  font-weight: 400;
+  color: #737373;
+  line-height: 1.4;
+}
+
+.mega-cta-card-link-label {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p4);   /* 13px */
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   Right panel (2/3) — icon cards, and optionally text links
+   ========================================================================== */
+
+.mega-menu-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* When text links are present: split right panel into two equal columns */
+.mega-menu-right.has-text-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ==========================================================================
+   Icon cards group — wraps section title + grid so they stay one grid cell
+   ========================================================================== */
+
+.mega-cards-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Icon cards section title + grid
+   ========================================================================== */
+
+.mega-cards-section-title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p4);   /* 13px */
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+}
+
+.mega-icon-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* icons_and_links variant: stack cards in a single column */
+.mega-menu-right.has-text-links .mega-icon-cards {
+  grid-template-columns: 1fr;
+}
+
+.mega-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: background-color var(--transition-fast) ease,
+              border-color var(--transition-fast) ease,
+              transform var(--transition-fast) ease;
+}
+
+.mega-card:hover {
+  background-color: var(--color-sky-blue-30);
+  border-color: var(--color-sky-blue);
+  transform: translateY(-2px);
+}
+
+.mega-card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mega-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mega-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.mega-card-title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p3);   /* 16px */
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-simple-black);
+  line-height: 1.3;
+}
+
+.mega-card-desc {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p4);   /* 13px */
+  font-weight: 400;
+  color: var(--color-navy);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Text links column (icons_and_links variant)
+   ========================================================================== */
+
+.mega-text-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mega-text-links-title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p4);   /* 13px */
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+}
+
+.mega-text-links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.mega-text-link {
+  display: block;
+  padding: 0.5rem 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p3);   /* 16px */
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-simple-black);
+  text-decoration: none;
+  transition: color var(--transition-fast) ease,
+              padding-left var(--transition-fast) ease;
+}
+
+.mega-text-link:hover {
+  color: var(--color-primary);
+  padding-left: 0.375rem;
+}

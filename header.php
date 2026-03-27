@@ -92,46 +92,33 @@ $phone_number = $phone_number ?: '';
 					<?php endif; ?>
 				</a>
 
-				<?php
-				/*
-				 * Primary Navigation — static placeholder links.
-				 * TODO: Swap for wp_nav_menu() once the menu is built in WP Admin
-				 * (Appearance → Menus, assign to "Primary Menu").
-				 */
-				?>
 				<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary navigation', 'loden-consulting' ); ?>">
-					<ul class="flex items-center gap-8 list-none m-0 p-0">
-						<li>
-							<a href="/services" class="nav-link">
-								<?php esc_html_e( 'Services', 'loden-consulting' ); ?>
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-									<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-								</svg>
-							</a>
-						</li>
-						<li>
-							<a href="/about" class="nav-link">
-								<?php esc_html_e( 'About', 'loden-consulting' ); ?>
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-									<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-								</svg>
-							</a>
-						</li>
-						<li>
-							<a href="/residential" class="nav-link"><?php esc_html_e( 'Residential', 'loden-consulting' ); ?></a>
-						</li>
-						<li>
-							<a href="/commercial" class="nav-link"><?php esc_html_e( 'Commercial', 'loden-consulting' ); ?></a>
-						</li>
-						<li>
-							<a href="/service-areas" class="nav-link">
-								<?php esc_html_e( 'Service Areas', 'loden-consulting' ); ?>
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 opacity-70" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-									<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-								</svg>
-							</a>
-						</li>
-					</ul>
+					<?php
+					if ( has_nav_menu( 'primary' ) ) {
+						wp_nav_menu(
+							array(
+								'theme_location' => 'primary',
+								'walker'         => new Loden_Desktop_Nav_Walker(),
+								'container'      => false,
+								'menu_id'        => 'primary-nav-menu',
+								'menu_class'     => 'flex items-center gap-8 list-none m-0 p-0',
+								'depth'          => 1,
+								'fallback_cb'    => false,
+							)
+						);
+					} else {
+						// Static placeholder — shown until a Primary Menu is assigned in WP Admin.
+						?>
+						<ul class="flex items-center gap-8 list-none m-0 p-0">
+							<li class="mega-menu-item"><a href="/services" class="nav-link"><?php esc_html_e( 'Services', 'loden-consulting' ); ?></a></li>
+							<li class="mega-menu-item"><a href="/about" class="nav-link"><?php esc_html_e( 'About', 'loden-consulting' ); ?></a></li>
+							<li class="mega-menu-item"><a href="/residential" class="nav-link"><?php esc_html_e( 'Residential', 'loden-consulting' ); ?></a></li>
+							<li class="mega-menu-item"><a href="/commercial" class="nav-link"><?php esc_html_e( 'Commercial', 'loden-consulting' ); ?></a></li>
+							<li class="mega-menu-item"><a href="/service-areas" class="nav-link"><?php esc_html_e( 'Service Areas', 'loden-consulting' ); ?></a></li>
+						</ul>
+						<?php
+					}
+					?>
 				</nav>
 
 				<?php /* CTA Button */ ?>

@@ -1,0 +1,422 @@
+{
+  "key": "group_mega_menu_nav_item",
+  "title": "Mega Menu Settings",
+  "fields": [
+    {
+      "key": "field_mm_01",
+      "label": "Enable Mega Menu",
+      "name": "mega_menu_enabled",
+      "type": "true_false",
+      "instructions": "Turn on to show a mega menu panel when this item is hovered.",
+      "required": 0,
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No",
+      "conditional_logic": 0
+    },
+    {
+      "key": "field_mm_02",
+      "label": "Mega Menu Type",
+      "name": "mega_menu_type",
+      "type": "select",
+      "instructions": "Choose the layout for the right-hand panel.",
+      "required": 0,
+      "choices": {
+        "icons": "Icon Cards only",
+        "icons_and_links": "Icon Cards + Text Links"
+      },
+      "default_value": "icons",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_tab_left",
+      "label": "Left Panel",
+      "name": "tab_left_panel",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_03",
+      "label": "Title",
+      "name": "mega_menu_left_title",
+      "type": "text",
+      "instructions": "Bold heading displayed in the left 1\/3 panel.",
+      "required": 0,
+      "default_value": "",
+      "placeholder": "e.g. Our Services",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_04",
+      "label": "Subtitle",
+      "name": "mega_menu_left_subtitle",
+      "type": "textarea",
+      "instructions": "Short description below the title.",
+      "required": 0,
+      "default_value": "",
+      "placeholder": "e.g. Explore everything we offer...",
+      "rows": 3,
+      "new_lines": "br",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_cta_title",
+      "label": "CTA Card Title",
+      "name": "mega_menu_cta_card_title",
+      "type": "text",
+      "instructions": "Bold heading inside the CTA card. Leave blank to hide the card.",
+      "required": 0,
+      "default_value": "",
+      "placeholder": "e.g. Get a Free Quote",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_cta_subtitle",
+      "label": "CTA Card Subtitle",
+      "name": "mega_menu_cta_card_subtitle",
+      "type": "text",
+      "instructions": "Short supporting text below the card title.",
+      "required": 0,
+      "default_value": "",
+      "placeholder": "e.g. We\u2019ll respond within 24 hours",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_cta_link",
+      "label": "CTA Card Link",
+      "name": "mega_menu_cta_card_link",
+      "type": "link",
+      "instructions": "URL the CTA card links to.",
+      "required": 0,
+      "return_format": "array",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_cta_link_label",
+      "label": "CTA Link Label",
+      "name": "mega_menu_cta_card_link_label",
+      "type": "text",
+      "instructions": "Text displayed as the clickable link label inside the CTA card (e.g. \u201cView All Services\u201d).",
+      "required": 0,
+      "default_value": "",
+      "placeholder": "e.g. View All Services",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_cta_icon",
+      "label": "CTA Card Icon",
+      "name": "mega_menu_cta_card_icon",
+      "type": "image",
+      "instructions": "Optional icon\/image displayed inside the CTA card.",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "thumbnail",
+      "library": "all",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_cta_bg",
+      "label": "CTA Card Background Color",
+      "name": "mega_menu_cta_card_bg",
+      "type": "color_picker",
+      "instructions": "Background colour for the CTA card.",
+      "required": 0,
+      "default_value": "#E8F4FD",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_tab_cards",
+      "label": "Icon Cards",
+      "name": "tab_icon_cards",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_cards_title",
+      "label": "Icon Cards Section Title",
+      "name": "mega_menu_icon_cards_title",
+      "type": "text",
+      "instructions": "Optional heading displayed above the icon card grid.",
+      "required": 0,
+      "default_value": "",
+      "placeholder": "e.g. Our Services",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_07",
+      "label": "Icon Cards",
+      "name": "mega_menu_icon_items",
+      "type": "repeater",
+      "instructions": "Add icon\/image cards for the right-hand panel. Recommended: 3\u20136 items.",
+      "required": 0,
+      "min": 0,
+      "max": 0,
+      "layout": "row",
+      "button_label": "Add Card",
+      "sub_fields": [
+        {
+          "key": "field_mm_07_icon",
+          "label": "Icon \/ Image",
+          "name": "item_icon",
+          "type": "image",
+          "required": 0,
+          "return_format": "array",
+          "preview_size": "thumbnail",
+          "library": "all"
+        },
+        {
+          "key": "field_mm_07_title",
+          "label": "Title",
+          "name": "item_title",
+          "type": "text",
+          "required": 1,
+          "default_value": "",
+          "placeholder": "e.g. Residential"
+        },
+        {
+          "key": "field_mm_07_desc",
+          "label": "Description",
+          "name": "item_description",
+          "type": "textarea",
+          "required": 0,
+          "default_value": "",
+          "placeholder": "Short description (optional)",
+          "rows": 2,
+          "new_lines": ""
+        },
+        {
+          "key": "field_mm_07_link",
+          "label": "Link",
+          "name": "item_link",
+          "type": "link",
+          "required": 0,
+          "return_format": "array"
+        }
+      ],
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_tab_links",
+      "label": "Text Links",
+      "name": "tab_text_links",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          },
+          {
+            "field": "field_mm_02",
+            "operator": "==",
+            "value": "icons_and_links"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_08",
+      "label": "Text Links Section Title",
+      "name": "mega_menu_text_links_title",
+      "type": "text",
+      "instructions": "Optional heading above the text link list.",
+      "required": 0,
+      "default_value": "",
+      "placeholder": "e.g. Quick Links",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          },
+          {
+            "field": "field_mm_02",
+            "operator": "==",
+            "value": "icons_and_links"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_mm_09",
+      "label": "Text Links",
+      "name": "mega_menu_text_links",
+      "type": "repeater",
+      "instructions": "Plain text links displayed alongside the icon cards.",
+      "required": 0,
+      "min": 0,
+      "max": 0,
+      "layout": "table",
+      "button_label": "Add Link",
+      "sub_fields": [
+        {
+          "key": "field_mm_09_label",
+          "label": "Label",
+          "name": "link_label",
+          "type": "text",
+          "required": 1,
+          "default_value": "",
+          "placeholder": "e.g. San Diego County"
+        },
+        {
+          "key": "field_mm_09_url",
+          "label": "Link",
+          "name": "link_url",
+          "type": "link",
+          "required": 0,
+          "return_format": "array"
+        }
+      ],
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mm_01",
+            "operator": "==",
+            "value": "1"
+          },
+          {
+            "field": "field_mm_02",
+            "operator": "==",
+            "value": "icons_and_links"
+          }
+        ]
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "nav_menu_item",
+        "operator": "==",
+        "value": "all"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Mega menu content fields — appear on each nav menu item in Appearance \u2192 Menus.",
+  "show_in_rest": 0,
+  "modified": 1774569600
+}

@@ -155,6 +155,7 @@ add_action('widgets_init', 'loden_consulting_widgets_init');
  * Include files
  */
 require get_template_directory() . '/inc/class-mobile-nav-walker.php';
+require get_template_directory() . '/inc/class-desktop-nav-walker.php';
 require get_template_directory() . '/inc/assets.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';

@@ -13,31 +13,36 @@
      Colors
      ========================================================================== */
 
+  /* Brand palette */
+  --color-clean-white: #FFFFFF;
+  --color-sky-blue-30: #EBF7FD;
+  --color-sky-blue: #D4F2FF;
+  --color-simple-black: #151819;
+  --color-navy: #206F93;
+  --color-simple-blue: #45B5E8;
+  --color-grass-green: #94BD3E;
+  --color-gold-star: #F6971B;
+  --color-dark-blue: #12242B;
+
   /* Primary brand colors */
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-light: #3b82f6;
+  --color-primary: #206F93;        /* Navy */
+  --color-primary-dark: #12242B;   /* Dark Blue */
+  --color-primary-light: #45B5E8;  /* Simple Blue */
 
   /* Secondary colors */
-  --color-secondary: #64748b;
-  --color-secondary-dark: #475569;
-  --color-secondary-light: #94a3b8;
+  --color-secondary: #12242B;      /* Dark Blue */
+  --color-secondary-dark: #151819; /* Simple Black */
+  --color-secondary-light: #D4F2FF; /* Sky Blue */
 
   /* Accent colors */
-  --color-accent: #f59e0b;
-  --color-accent-dark: #d97706;
-  --color-accent-light: #fbbf24;
-
-  /* Neutral colors - extend or override Tailwind defaults */
-  /* --color-gray-50: #f9fafb; */
-  /* --color-gray-100: #f3f4f6; */
-  /* etc. */
+  --color-accent: #F6971B;         /* Gold Star */
+  --color-accent-alt: #94BD3E;     /* Grass Green */
 
   /* Semantic colors */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
+  --color-success: #94BD3E;
+  --color-warning: #F6971B;
   --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --color-info: #45B5E8;
 
   /* ==========================================================================
      Typography
@@ -148,27 +153,27 @@
 
 [data-theme="light"],
 :root {
-  /* Brand colors mapped to daisyUI semantic colors */
-  --p: 37.7% 0.215 261.1;           /* primary - oklch format */
-  --pc: 98% 0.005 261.1;            /* primary-content */
-  --s: 55.4% 0.046 257.4;           /* secondary */
-  --sc: 98% 0.005 257.4;            /* secondary-content */
-  --a: 75% 0.183 55.9;              /* accent (amber) */
-  --ac: 27% 0.077 55.9;             /* accent-content */
-  --n: 32% 0.034 264.5;             /* neutral */
-  --nc: 98% 0.005 264.5;            /* neutral-content */
-  --b1: 100% 0 0;                   /* base-100 (background) */
-  --b2: 96.7% 0.003 264.5;          /* base-200 */
-  --b3: 92.8% 0.006 264.5;          /* base-300 */
-  --bc: 21% 0.034 264.7;            /* base-content */
-  --su: 76.8% 0.189 147.5;          /* success */
-  --suc: 27% 0.077 147.5;           /* success-content */
-  --wa: 75% 0.183 55.9;             /* warning */
-  --wac: 27% 0.077 55.9;            /* warning-content */
+  /* Brand colors mapped to daisyUI semantic colors (oklch format) */
+  --p: 47% 0.10 220;                /* primary - Navy #206F93 */
+  --pc: 98% 0 0;                    /* primary-content - white */
+  --s: 70% 0.13 213;                /* secondary - Simple Blue #45B5E8 */
+  --sc: 98% 0 0;                    /* secondary-content - white */
+  --a: 72% 0.18 55;                 /* accent - Gold Star #F6971B */
+  --ac: 20% 0.05 55;                /* accent-content */
+  --n: 18% 0.04 218;                /* neutral - Dark Blue #12242B */
+  --nc: 98% 0 0;                    /* neutral-content - white */
+  --b1: 100% 0 0;                   /* base-100 - Clean White #FFFFFF */
+  --b2: 97% 0.02 215;               /* base-200 - Sky Blue 30% #EBF7FD */
+  --b3: 95% 0.04 215;               /* base-300 - Sky Blue #D4F2FF */
+  --bc: 13% 0.01 220;               /* base-content - Simple Black #151819 */
+  --su: 72% 0.17 121;               /* success - Grass Green #94BD3E */
+  --suc: 98% 0 0;                   /* success-content */
+  --wa: 72% 0.18 55;                /* warning - Gold Star #F6971B */
+  --wac: 20% 0.05 55;               /* warning-content */
   --er: 62.8% 0.257 29.2;           /* error */
   --erc: 98% 0.005 29.2;            /* error-content */
-  --in: 62.3% 0.214 259.1;          /* info */
-  --inc: 98% 0.005 259.1;           /* info-content */
+  --in: 70% 0.13 213;               /* info - Simple Blue #45B5E8 */
+  --inc: 98% 0 0;                   /* info-content */
 
   /* Component styling */
   --rounded-box: 0.5rem;

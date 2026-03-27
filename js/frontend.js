@@ -1,1 +1,411 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",()=>{!function(){const e=document.querySelector("[data-menu-toggle]"),t=document.querySelector("[data-mobile-menu]");e&&t&&(e.addEventListener("click",()=>{const o="true"===e.getAttribute("aria-expanded");e.setAttribute("aria-expanded",!o),t.classList.toggle("hidden"),document.body.classList.toggle("overflow-hidden",!o)}),document.addEventListener("keydown",o=>{"Escape"!==o.key||t.classList.contains("hidden")||(e.setAttribute("aria-expanded","false"),t.classList.add("hidden"),document.body.classList.remove("overflow-hidden"),e.focus())}))}(),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){const t=this.getAttribute("href");if("#"===t||!t)return;const o=document.querySelector(t);o&&(e.preventDefault(),o.scrollIntoView({behavior:"smooth",block:"start"}),history.pushState(null,null,t),o.setAttribute("tabindex","-1"),o.focus({preventScroll:!0}))})}),function(){if("loading"in HTMLImageElement.prototype)document.querySelectorAll('img[loading="lazy"]').forEach(e=>{e.dataset.src&&(e.src=e.dataset.src)});else{const e=document.querySelectorAll('img[loading="lazy"]');if("IntersectionObserver"in window){const t=new IntersectionObserver((e,t)=>{e.forEach(e=>{if(e.isIntersecting){const o=e.target;o.dataset.src&&(o.src=o.dataset.src),o.removeAttribute("loading"),t.unobserve(o)}})});e.forEach(e=>t.observe(e))}else e.forEach(e=>{e.dataset.src&&(e.src=e.dataset.src)})}}(),window.openModal=e=>{const t=document.getElementById(e);t&&"DIALOG"===t.tagName&&t.showModal()},window.closeModal=e=>{const t=document.getElementById(e);t&&"DIALOG"===t.tagName&&t.close()},document.querySelectorAll("dialog.modal").forEach(e=>{e.addEventListener("close",()=>{document.body.classList.remove("overflow-hidden")}),e.addEventListener("cancel",e=>{document.body.classList.remove("overflow-hidden")})}),document.addEventListener("click",e=>{document.querySelectorAll(".dropdown").forEach(t=>{if(!t.contains(e.target)){const e=t.querySelector("[tabindex]");e&&document.activeElement===e&&e.blur()}})}),document.addEventListener("keydown",e=>{if("Escape"===e.key){const e=document.activeElement?.closest(".dropdown");e&&document.activeElement.blur()}}),window.openDrawer=e=>{const t=document.getElementById(e);t&&"checkbox"===t.type&&(t.checked=!0)},window.closeDrawer=e=>{const t=document.getElementById(e);t&&"checkbox"===t.type&&(t.checked=!1)},window.toggleDrawer=e=>{const t=document.getElementById(e);t&&"checkbox"===t.type&&(t.checked=!t.checked)},document.querySelectorAll(".drawer-toggle").forEach(e=>{document.addEventListener("keydown",t=>{"Escape"===t.key&&e.checked&&(e.checked=!1)})}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,o=e||(t?"dark":"light");document.documentElement.setAttribute("data-theme",o),window.toggleTheme=()=>{const e="dark"===document.documentElement.getAttribute("data-theme")?"light":"dark";document.documentElement.setAttribute("data-theme",e),localStorage.setItem("theme",e),document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.checked="dark"===e})},window.setTheme=e=>{document.documentElement.setAttribute("data-theme",e),localStorage.setItem("theme",e)},document.querySelectorAll("[data-theme-toggle]").forEach(e=>{e.checked="dark"===o,e.addEventListener("change",()=>{window.toggleTheme()})}),window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{localStorage.getItem("theme")||document.documentElement.setAttribute("data-theme",e.matches?"dark":"light")})}()})})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+/*!****************************!*\
+  !*** ./src/js/frontend.js ***!
+  \****************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   debounce: () => (/* binding */ debounce),
+/* harmony export */   throttle: () => (/* binding */ throttle)
+/* harmony export */ });
+/**
+ * Frontend JavaScript
+ *
+ * Main JavaScript file for the theme frontend.
+ */
+
+// Import WordPress dependencies if needed
+// import domReady from '@wordpress/dom-ready';
+
+/**
+ * Initialize theme functionality when DOM is ready
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  initMobileMenu();
+  initSmoothScroll();
+  initLazyLoading();
+  initDaisyUI();
+});
+
+/**
+ * Mobile menu toggle functionality
+ */
+function initMobileMenu() {
+  const menuToggle = document.querySelector('[data-menu-toggle]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+  if (!menuToggle || !mobileMenu) {
+    return;
+  }
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    mobileMenu.classList.toggle('hidden');
+
+    // Toggle body scroll
+    document.body.classList.toggle('overflow-hidden', !isExpanded);
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      menuToggle.focus();
+    }
+  });
+}
+
+/**
+ * Smooth scroll for anchor links
+ */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+
+      // Skip if it's just "#" or empty
+      if (targetId === '#' || !targetId) {
+        return;
+      }
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        // Update URL without jumping
+        history.pushState(null, null, targetId);
+
+        // Set focus for accessibility
+        targetElement.setAttribute('tabindex', '-1');
+        targetElement.focus({
+          preventScroll: true
+        });
+      }
+    });
+  });
+}
+
+/**
+ * Lazy loading enhancement for images
+ * Note: Modern browsers support native lazy loading, this adds fallback behavior
+ */
+function initLazyLoading() {
+  // Check if native lazy loading is supported
+  if ('loading' in HTMLImageElement.prototype) {
+    // Native lazy loading is supported
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      // Ensure data-src is applied if present
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+      }
+    });
+  } else {
+    // Fallback for older browsers using Intersection Observer
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+            }
+            img.removeAttribute('loading');
+            observer.unobserve(img);
+          }
+        });
+      });
+      images.forEach(img => imageObserver.observe(img));
+    } else {
+      // Final fallback: just load all images
+      images.forEach(img => {
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+        }
+      });
+    }
+  }
+}
+
+/**
+ * Utility: Debounce function for performance
+ *
+ * @param {Function} func - Function to debounce
+ * @param {number} wait - Wait time in milliseconds
+ * @return {Function} Debounced function
+ */
+function debounce(func, wait = 100) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+/**
+ * Utility: Throttle function for performance
+ *
+ * @param {Function} func - Function to throttle
+ * @param {number} limit - Limit in milliseconds
+ * @return {Function} Throttled function
+ */
+function throttle(func, limit = 100) {
+  let inThrottle;
+  return function executedFunction(...args) {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
+    }
+  };
+}
+
+/* ==========================================================================
+   daisyUI Helpers
+   ========================================================================== */
+
+/**
+ * Initialize daisyUI interactive components
+ */
+function initDaisyUI() {
+  initModals();
+  initDropdowns();
+  initDrawers();
+  initThemeToggle();
+}
+
+/**
+ * Modal helpers using native <dialog> element
+ *
+ * Usage:
+ * <button onclick="window.openModal('my-modal')">Open</button>
+ * <dialog id="my-modal" class="modal">
+ *   <div class="modal-box">
+ *     <h3>Title</h3>
+ *     <p>Content</p>
+ *     <div class="modal-action">
+ *       <button onclick="window.closeModal('my-modal')" class="btn">Close</button>
+ *     </div>
+ *   </div>
+ *   <form method="dialog" class="modal-backdrop">
+ *     <button>close</button>
+ *   </form>
+ * </dialog>
+ */
+function initModals() {
+  // Global modal open function
+  window.openModal = id => {
+    const modal = document.getElementById(id);
+    if (modal && modal.tagName === 'DIALOG') {
+      modal.showModal();
+    }
+  };
+
+  // Global modal close function
+  window.closeModal = id => {
+    const modal = document.getElementById(id);
+    if (modal && modal.tagName === 'DIALOG') {
+      modal.close();
+    }
+  };
+
+  // Close modal on escape key (native dialog behavior, but ensure cleanup)
+  document.querySelectorAll('dialog.modal').forEach(modal => {
+    modal.addEventListener('close', () => {
+      // Any cleanup needed when modal closes
+      document.body.classList.remove('overflow-hidden');
+    });
+    modal.addEventListener('cancel', e => {
+      // Handle escape key
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
+}
+
+/**
+ * Dropdown enhancement - close on outside click
+ *
+ * Usage:
+ * <div class="dropdown" data-dropdown>
+ *   <label tabindex="0" class="btn m-1">Click</label>
+ *   <ul tabindex="0" class="dropdown-content menu">
+ *     <li><a>Item 1</a></li>
+ *   </ul>
+ * </div>
+ */
+function initDropdowns() {
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', e => {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        // Remove focus to close the dropdown
+        const focusable = dropdown.querySelector('[tabindex]');
+        if (focusable && document.activeElement === focusable) {
+          focusable.blur();
+        }
+      }
+    });
+  });
+
+  // Close dropdowns on escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const activeDropdown = document.activeElement?.closest('.dropdown');
+      if (activeDropdown) {
+        document.activeElement.blur();
+      }
+    }
+  });
+}
+
+/**
+ * Drawer helpers for mobile navigation
+ *
+ * Usage:
+ * <div class="drawer">
+ *   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+ *   <div class="drawer-content">
+ *     <label for="my-drawer" class="btn btn-primary drawer-button">Open</label>
+ *   </div>
+ *   <div class="drawer-side">
+ *     <label for="my-drawer" class="drawer-overlay"></label>
+ *     <ul class="menu">...</ul>
+ *   </div>
+ * </div>
+ */
+function initDrawers() {
+  // Global drawer toggle functions
+  window.openDrawer = id => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = true;
+    }
+  };
+  window.closeDrawer = id => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = false;
+    }
+  };
+  window.toggleDrawer = id => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = !toggle.checked;
+    }
+  };
+
+  // Close drawer on escape key
+  document.querySelectorAll('.drawer-toggle').forEach(toggle => {
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && toggle.checked) {
+        toggle.checked = false;
+      }
+    });
+  });
+}
+
+/**
+ * Theme toggle (light/dark mode)
+ *
+ * Usage:
+ * <button onclick="window.toggleTheme()" class="btn">Toggle Theme</button>
+ *
+ * Or with a swap component:
+ * <label class="swap swap-rotate">
+ *   <input type="checkbox" data-theme-toggle />
+ *   <svg class="swap-on ...">sun icon</svg>
+ *   <svg class="swap-off ...">moon icon</svg>
+ * </label>
+ */
+function initThemeToggle() {
+  // Check for saved theme preference or default to system preference
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+  // Apply initial theme
+  document.documentElement.setAttribute('data-theme', initialTheme);
+
+  // Global theme toggle function
+  window.toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Update any theme toggle checkboxes
+    document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+      toggle.checked = newTheme === 'dark';
+    });
+  };
+
+  // Global set theme function
+  window.setTheme = theme => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  // Initialize theme toggle checkboxes
+  document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+    toggle.checked = initialTheme === 'dark';
+    toggle.addEventListener('change', () => {
+      window.toggleTheme();
+    });
+  });
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    }
+  });
+}
+/******/ })()
+;
+//# sourceMappingURL=frontend.js.map

@@ -6,7 +6,8 @@
       "Bash(curl:*)",
       "Bash(python3:*)",
       "Bash(cd:*)",
-      "Bash(cd /Users/timloden/Local\\\\ Sites/loden-consulting/app/public/wp-content/themes/loden-consulting-theme && npm run build:css:*)"
+      "Bash(cd /Users/timloden/Local\\\\ Sites/loden-consulting/app/public/wp-content/themes/loden-consulting-theme && npm run build:css:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

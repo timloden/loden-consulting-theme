@@ -1,0 +1,118 @@
+/**
+ * Site Header
+ *
+ * Fixed header that starts transparent and transitions to white on scroll.
+ * JS adds `.is-scrolled` to [data-header] once the user scrolls past the threshold.
+ */
+
+/* ==========================================================================
+   Base — transparent over hero
+   ========================================================================== */
+
+.site-header {
+  background-color: transparent;
+  color: white;
+  transition: background-color var(--transition-normal) ease,
+              box-shadow var(--transition-normal) ease;
+}
+
+/* ==========================================================================
+   Scrolled — white background
+   ========================================================================== */
+
+.site-header.is-scrolled {
+  background-color: white;
+  color: var(--color-simple-black);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   Logo swap
+   ========================================================================== */
+
+/* Transparent state: show dark-bg logo, hide white-bg logo */
+.site-header .logo-transparent { display: block; }
+.site-header .logo-white       { display: none;  }
+
+/* Scrolled state: swap logos */
+.site-header.is-scrolled .logo-transparent { display: none;  }
+.site-header.is-scrolled .logo-white       { display: block; }
+
+/* ==========================================================================
+   Desktop nav links
+   ========================================================================== */
+
+.site-header .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: inherit;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p3);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color var(--transition-fast) ease;
+}
+
+.site-header .nav-link:hover {
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Mobile drawer — side panel nav links
+   ========================================================================== */
+
+.mobile-nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p2);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-simple-black);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast) ease,
+              color var(--transition-fast) ease;
+}
+
+.mobile-nav-link:hover {
+  background-color: var(--color-sky-blue-30);
+  color: var(--color-primary);
+}
+
+/* Mobile call button — gold-glimmer in both header states */
+.mobile-call-btn {
+  color: var(--color-gold-glimmer);
+  transition: opacity var(--transition-fast) ease;
+}
+
+/* Mobile menu button — white on transparent header, dark on scroll */
+.mobile-menu-btn {
+  color: white;
+  transition: color var(--transition-normal) ease,
+              opacity var(--transition-fast) ease;
+}
+
+.site-header.is-scrolled .mobile-menu-btn {
+  color: var(--color-simple-black);
+}
+
+/* Mobile divider between groups */
+.mobile-nav-divider {
+  height: 1px;
+  background-color: var(--color-sky-blue);
+  margin: 0.5rem 0;
+}
+
+/* ==========================================================================
+   Nav CTA scroll-state override
+   When the header has a white background (.is-scrolled), the btn-nav-cta
+   hover/active outline should be dark instead of white.
+   ========================================================================== */
+
+.site-header.is-scrolled .btn-nav-cta:hover,
+.site-header.is-scrolled .btn-nav-cta:active {
+  border-color: var(--color-simple-black);
+  color: var(--color-simple-black);
+}

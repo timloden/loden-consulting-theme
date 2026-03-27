@@ -12,10 +12,45 @@
  */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
+  initHeaderScroll();
   initSmoothScroll();
   initLazyLoading();
   initDaisyUI();
 });
+
+/**
+ * Header scroll behaviour
+ *
+ * Adds `.is-scrolled` to [data-header] once the user scrolls past the
+ * threshold. CSS in header.css handles the transparent → white transition
+ * and the logo swap.
+ */
+function initHeaderScroll() {
+  const header = document.querySelector('[data-header]');
+  if (!header) return;
+
+  const SCROLL_THRESHOLD = 80; // px before the header changes state
+  let ticking = false;
+
+  const updateHeader = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > SCROLL_THRESHOLD);
+    ticking = false;
+  };
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  // Apply correct state immediately (e.g. on refresh mid-page).
+  updateHeader();
+}
 
 /**
  * Mobile menu toggle functionality

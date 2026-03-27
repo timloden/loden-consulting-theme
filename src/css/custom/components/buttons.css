@@ -1,0 +1,242 @@
+/**
+ * Button Components
+ *
+ * Design system button variants. All share a base; use the semantic
+ * class names below rather than composing daisyUI utility classes.
+ *
+ * Variants:
+ *   .btn-cta          — Primary CTA (orange fill, arrow ↗ on hover)
+ *   .btn-nav-cta      — Header nav CTA (orange → outline on hover, scroll-aware)
+ *   .btn-phone        — Secondary phone button, light bg context
+ *   .btn-phone-dark   — Secondary phone button, dark bg context
+ *   .link-arrow       — Text link with animated right arrow →
+ */
+
+/* ==========================================================================
+   Shared base
+   ========================================================================== */
+
+.btn-cta,
+.btn-nav-cta,
+.btn-phone,
+.btn-phone-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p3);   /* 16px */
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 9999px;            /* pill */
+  padding: 0.625rem 1.5rem;
+  border: 2px solid transparent;
+  transition: background-color var(--transition-normal) ease,
+              color var(--transition-normal) ease,
+              border-color var(--transition-normal) ease;
+}
+
+.btn-cta:focus-visible,
+.btn-nav-cta:focus-visible,
+.btn-phone:focus-visible,
+.btn-phone-dark:focus-visible,
+.link-arrow:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   PRIMARY CTA — arrow ↗ appears on hover
+   Use on light OR dark backgrounds (orange always reads clearly).
+
+   HTML: <a href="..." class="btn-cta">Get Your Free Quote</a>
+   ========================================================================== */
+
+.btn-cta {
+  background-color: var(--color-accent);   /* Gold #F6971B */
+  color: white;
+  border-color: var(--color-accent);
+}
+
+/* Arrow: hidden, slides in on hover */
+.btn-cta::after {
+  content: "↗";
+  display: inline-block;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width var(--transition-normal) ease,
+              opacity var(--transition-normal) ease,
+              margin-left var(--transition-normal) ease;
+}
+
+.btn-cta:hover {
+  background-color: var(--color-accent);  /* stay orange */
+}
+
+.btn-cta:hover::after {
+  opacity: 1;
+  max-width: 1.5rem;
+  margin-left: 0.4rem;
+}
+
+/* Active/click: outline, no fill */
+.btn-cta:active {
+  background-color: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-cta:active::after {
+  opacity: 1;
+  max-width: 1.5rem;
+  margin-left: 0.4rem;
+}
+
+/* ==========================================================================
+   NAV CTA — no arrow, lives inside the site header
+   Hover/active states are context-aware via header.css (.is-scrolled).
+
+   Default context (transparent header over dark hero):
+     hover → transparent + white outline
+   Scrolled context (white header):
+     hover → transparent + dark outline
+
+   HTML: <a href="..." class="btn-nav-cta">Get a Free Quote</a>
+   ========================================================================== */
+
+.btn-nav-cta {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+}
+
+/* On dark / transparent header */
+.btn-nav-cta:hover {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
+.btn-nav-cta:active {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
+/* On scrolled (white) header — overridden in header.css via .site-header.is-scrolled */
+
+/* ==========================================================================
+   SECONDARY PHONE — light background context
+   Default: white fill + navy border/text
+   Hover/active: navy fill + white text
+
+   HTML:
+   <a href="tel:..." class="btn-phone">
+     <svg ...>...</svg>
+     (833)-887-7378
+   </a>
+   ========================================================================== */
+
+.btn-phone {
+  background-color: white;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  gap: 0.5rem;
+}
+
+.btn-phone:hover,
+.btn-phone:active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Icon inherits current color */
+.btn-phone svg {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: color var(--transition-normal) ease;
+}
+
+/* ==========================================================================
+   SECONDARY PHONE — dark background context
+   Default: transparent + white border/text
+   Hover/active: white fill + navy text
+
+   HTML:
+   <a href="tel:..." class="btn-phone-dark">
+     <svg ...>...</svg>
+     (833)-887-7378
+   </a>
+   ========================================================================== */
+
+.btn-phone-dark {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  gap: 0.5rem;
+}
+
+.btn-phone-dark:hover,
+.btn-phone-dark:active {
+  background-color: white;
+  color: var(--color-primary);
+  border-color: white;
+}
+
+.btn-phone-dark svg {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: color var(--transition-normal) ease;
+}
+
+/* ==========================================================================
+   TEXT LINK WITH ARROW — "Protect My Business →"
+   Default: primary blue, normal weight, → arrow
+   Hover/active: bold, arrow slides right
+
+   HTML: <a href="..." class="link-arrow">Protect My Business</a>
+   ========================================================================== */
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p3);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: font-weight var(--transition-fast) ease,
+              color var(--transition-fast) ease;
+}
+
+.link-arrow::after {
+  content: "→";
+  display: inline-block;
+  transition: transform var(--transition-normal) ease;
+}
+
+.link-arrow:hover {
+  font-weight: 700;
+}
+
+.link-arrow:hover::after,
+.link-arrow:active::after {
+  transform: translateX(5px);
+}
+
+.link-arrow:active {
+  font-weight: 700;
+}

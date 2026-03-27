@@ -1,0 +1,134 @@
+/**
+ * Typography
+ *
+ * Brand type scale and font definitions.
+ * Nunito Sans: primary font loaded via Google Fonts (inc/assets.php)
+ * Swister: self-hosted display/accent font
+ */
+
+/* ==========================================================================
+   Swister — Self-hosted display font
+   Place font files at: fonts/swister/swister.woff2 and swister.woff
+   ========================================================================== */
+
+@font-face {
+  font-family: "Swister";
+  src: url("../../fonts/swister/swister.woff2") format("woff2"),
+       url("../../fonts/swister/swister.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p1);
+}
+
+/* ==========================================================================
+   Headings — Nunito Sans
+   ========================================================================== */
+
+h1,
+.h1 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h1);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+h2,
+.h2 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+h3,
+.h3 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+h4,
+.h4 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h4);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+h5,
+.h5 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h5);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+h6,
+.h6 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h6);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+/* H7 — Swister accent/display style (no native HTML element) */
+.h7 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h7);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Body text
+   ========================================================================== */
+
+.p1 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p1);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.p2 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p2);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.p3 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p3);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+/* Footer text */
+.p4 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-p4);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}

@@ -16,7 +16,7 @@ Text Domain: loden-consulting
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     --color-yellow-600: oklch(68.1% 0.162 75.834);
     --color-gray-50: oklch(98.5% 0.002 247.839);
@@ -71,6 +71,18 @@ Text Domain: loden-consulting
     --color-warning: #F6971B;
     --color-error: #ef4444;
     --color-info: #45B5E8;
+    --font-display: "Swister", ui-serif, serif;
+    --font-size-h1: 5rem;
+    --font-size-h2: 3rem;
+    --font-size-h3: 3rem;
+    --font-size-h4: 1.875rem;
+    --font-size-h5: 1.5rem;
+    --font-size-h6: 1.25rem;
+    --font-size-h7: 2rem;
+    --font-size-p1: 1.3125rem;
+    --font-size-p2: 1.1875rem;
+    --font-size-p3: 1rem;
+    --font-size-p4: 0.8125rem;
     --container-padding: 1rem;
     --section-spacing: 4rem;
     --radius-full: 9999px;
@@ -2866,9 +2878,6 @@ Text Domain: loden-consulting
   }
   .bg-base-100 {
     background-color: var(--color-base-100);
-  }
-  .bg-gold-star {
-    background-color: var(--color-gold-star);
   }
   .bg-gray-50 {
     background-color: var(--color-gray-50);

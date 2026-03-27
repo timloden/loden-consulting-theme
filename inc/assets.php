@@ -17,6 +17,14 @@ function loden_consulting_scripts() {
 	$theme_uri     = get_template_directory_uri();
 	$theme_path    = get_template_directory();
 
+	// Google Fonts - Nunito Sans (primary font).
+	wp_enqueue_style(
+		'loden-consulting-google-fonts',
+		'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap',
+		array(),
+		null
+	);
+
 	// Main stylesheet with cache busting.
 	$style_path = $theme_path . '/style.css';
 	$style_ver  = file_exists( $style_path ) ? filemtime( $style_path ) : $theme_version;
@@ -76,15 +84,14 @@ add_action( 'enqueue_block_editor_assets', 'loden_consulting_block_editor_assets
  */
 function loden_consulting_resource_hints( $urls, $relation_type ) {
 	if ( 'preconnect' === $relation_type ) {
-		// Add preconnect for Google Fonts if you use them.
-		// $urls[] = array(
-		//     'href' => 'https://fonts.googleapis.com',
-		//     'crossorigin',
-		// );
-		// $urls[] = array(
-		//     'href' => 'https://fonts.gstatic.com',
-		//     'crossorigin',
-		// );
+		$urls[] = array(
+			'href'        => 'https://fonts.googleapis.com',
+			'crossorigin' => true,
+		);
+		$urls[] = array(
+			'href'        => 'https://fonts.gstatic.com',
+			'crossorigin' => true,
+		);
 	}
 
 	return $urls;

@@ -7,7 +7,8 @@
       "Bash(python3:*)",
       "Bash(cd:*)",
       "Bash(cd /Users/timloden/Local\\\\ Sites/loden-consulting/app/public/wp-content/themes/loden-consulting-theme && npm run build:css:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(php -l \"/Users/timloden/Local Sites/loden-consulting/app/public/wp-content/themes/loden-consulting-theme/footer.php\")"
     ]
   }
 }

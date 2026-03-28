@@ -253,7 +253,7 @@
         {
             "key": "field_69c7531f00138",
             "label": "Footer Refer Title",
-            "name": "footer_refer_title_",
+            "name": "footer_refer_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -591,5 +591,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774670687
+    "modified": 1774671143
 }

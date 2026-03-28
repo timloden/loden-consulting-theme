@@ -3027,6 +3027,17 @@ Text Domain: loden-consulting
       padding-inline: calc(var(--size) / 2 - var(--border));
     }
   }
+  .tabs {
+    @layer daisyui.l1.l2.l3 {
+      display: flex;
+      flex-wrap: wrap;
+      --tabs-height: auto;
+      --tabs-direction: row;
+      --tab-height: calc(var(--size-field, 0.25rem) * 10);
+      height: var(--tabs-height);
+      flex-direction: var(--tabs-direction);
+    }
+  }
   .footer {
     @layer daisyui.l1.l2.l3 {
       display: grid;
@@ -3618,6 +3629,9 @@ Text Domain: loden-consulting
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
   }
+  .text-\[\#6D7572\] {
+    color: #6D7572;
+  }
   .text-\[\#45B5E8\] {
     color: #45B5E8;
   }
@@ -3919,6 +3933,16 @@ Text Domain: loden-consulting
   .lg\:py-16 {
     @media (width >= 1024px) {
       padding-block: calc(var(--spacing) * 16);
+    }
+  }
+  .\[\&_p\]\:mb-2 {
+    & p {
+      margin-bottom: calc(var(--spacing) * 2);
+    }
+  }
+  .\[\&_p\:last-child\]\:mb-0 {
+    & p:last-child {
+      margin-bottom: calc(var(--spacing) * 0);
     }
   }
 }

@@ -35,6 +35,9 @@ function loden_consulting_setup()
 			'primary' => esc_html__('Primary Menu', 'loden-consulting'),
 			'footer'  => esc_html__('Footer Menu', 'loden-consulting'),
 			'mobile'  => esc_html__('Mobile Menu', 'loden-consulting'),
+			'footer-menu-1' => esc_html__('Footer Menu 1', 'loden-consulting'),
+			'footer-menu-2' => esc_html__('Footer Menu 2', 'loden-consulting'),
+			'copyright' => esc_html__('Copyright Menu', 'loden-consulting'),
 		)
 	);
 
@@ -156,6 +159,7 @@ add_action('widgets_init', 'loden_consulting_widgets_init');
  */
 require get_template_directory() . '/inc/class-mobile-nav-walker.php';
 require get_template_directory() . '/inc/class-desktop-nav-walker.php';
+require get_template_directory() . '/inc/class-footer-nav-walker.php';
 require get_template_directory() . '/inc/assets.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';

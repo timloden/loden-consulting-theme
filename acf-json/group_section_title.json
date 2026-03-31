@@ -1,0 +1,106 @@
+{
+    "key": "group_section_title",
+    "title": "Section Title",
+    "fields": [
+        {
+            "key": "field_st_eyebrow",
+            "label": "Eyebrow",
+            "name": "st_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small uppercase badge displayed above the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "PESTS WE TREAT",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_st_title",
+            "label": "Title",
+            "name": "st_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main heading. Renders as H2.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Protection You Can",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_st_title_highlight",
+            "label": "Title Highlight",
+            "name": "st_title_highlight",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional text appended to the title in accent blue.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Count On",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_st_subtitle",
+            "label": "Subtitle",
+            "name": "st_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional supporting text displayed below the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br",
+            "placeholder": "Not sure what you're dealing with? Select a pest below..."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/section-title"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Section Title block.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1774908975
+}

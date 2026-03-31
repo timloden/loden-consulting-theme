@@ -1968,11 +1968,17 @@ button,
 .right-2 {
   right: calc(var(--spacing) * 2);
 }
+.right-4 {
+  right: calc(var(--spacing) * 4);
+}
 .right-6 {
   right: calc(var(--spacing) * 6);
 }
 .left-0 {
   left: calc(var(--spacing) * 0);
+}
+.left-2 {
+  left: calc(var(--spacing) * 2);
 }
 .textarea {
   border: var(--border) solid #0000;
@@ -3140,6 +3146,9 @@ button,
 .mt-10 {
   margin-top: calc(var(--spacing) * 10);
 }
+.mt-12 {
+  margin-top: calc(var(--spacing) * 12);
+}
 .mt-auto {
   margin-top: auto;
 }
@@ -3226,6 +3235,12 @@ button,
 .ml-1 {
   margin-left: calc(var(--spacing) * 1);
 }
+.carousel-item {
+  box-sizing: content-box;
+  display: flex;
+  flex: none;
+  scroll-snap-align: start;
+}
 .badge {
   display: inline-flex;
   align-items: center;
@@ -3307,6 +3322,20 @@ button,
 }
 .card-body :where(p) {
   flex-grow: 1;
+}
+.carousel {
+  display: inline-flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .carousel {
+    scroll-behavior: smooth;
+  }
+}
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 .card-actions {
   display: flex;
@@ -3460,6 +3489,9 @@ button,
 .h-10 {
   height: calc(var(--spacing) * 10);
 }
+.h-12 {
+  height: calc(var(--spacing) * 12);
+}
 .h-16 {
   height: calc(var(--spacing) * 16);
 }
@@ -3498,6 +3530,18 @@ button,
 }
 .w-9 {
   width: calc(var(--spacing) * 9);
+}
+.w-10 {
+  width: calc(var(--spacing) * 10);
+}
+.w-12 {
+  width: calc(var(--spacing) * 12);
+}
+.w-20 {
+  width: calc(var(--spacing) * 20);
+}
+.w-\[272px\] {
+  width: 272px;
 }
 .w-auto {
   width: auto;
@@ -3669,6 +3713,9 @@ button,
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -3718,6 +3765,9 @@ button,
 }
 .border-gray-200 {
   border-color: var(--color-gray-200);
+}
+.border-gray-300 {
+  border-color: var(--color-gray-300);
 }
 .border-white\/10 {
   border-color: color-mix(in srgb, #fff 10%, transparent);
@@ -3877,6 +3927,9 @@ button,
 .pt-\[250px\] {
   padding-top: 250px;
 }
+.pb-4 {
+  padding-bottom: calc(var(--spacing) * 4);
+}
 .pb-24 {
   padding-bottom: calc(var(--spacing) * 24);
 }
@@ -3954,6 +4007,10 @@ button,
 .font-semibold {
   --tw-font-weight: var(--font-weight-semibold);
   font-weight: var(--font-weight-semibold);
+}
+.tracking-\[0\.15em\] {
+  --tw-tracking: 0.15em;
+  letter-spacing: 0.15em;
 }
 .tracking-widest {
   --tw-tracking: var(--tracking-widest);
@@ -4104,6 +4161,10 @@ button,
   --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 }
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
 .shadow-sm {
   --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -4172,6 +4233,11 @@ button,
     .hover\:bg-white\/90:hover {
       background-color: color-mix(in oklab, var(--color-white) 90%, transparent);
     }
+  }
+}
+@media (hover: hover) {
+  .hover\:text-gray-700:hover {
+    color: var(--color-gray-700);
   }
 }
 @media (hover: hover) {
@@ -5703,7 +5769,7 @@ h2,
   font-family: var(--font-sans);
   font-size: var(--font-size-h2);
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.2;
   letter-spacing: 0;
 }
 h3,
@@ -5711,7 +5777,7 @@ h3,
   font-family: var(--font-sans);
   font-size: var(--font-size-h3);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.25;
   letter-spacing: 0.02em;
 }
 h4,
@@ -5719,7 +5785,7 @@ h4,
   font-family: var(--font-sans);
   font-size: var(--font-size-h4);
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0.02em;
 }
 h5,
@@ -5727,7 +5793,7 @@ h5,
   font-family: var(--font-sans);
   font-size: var(--font-size-h5);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0.02em;
 }
 h6,
@@ -5735,7 +5801,7 @@ h6,
   font-family: var(--font-sans);
   font-size: var(--font-size-h6);
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.25;
   letter-spacing: 0.02em;
 }
 .h7 {

@@ -1,0 +1,280 @@
+{
+    "key": "group_card_carousel",
+    "title": "Card Carousel",
+    "fields": [
+        {
+            "key": "field_cc_tab_cards",
+            "label": "Cards",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_cc_cards",
+            "label": "Cards",
+            "name": "cc_cards",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_cc_card_title",
+            "button_label": "Add Card",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_cc_card_image",
+                    "label": "Icon \/ Image",
+                    "name": "cc_card_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Displayed in a circular light-blue container. SVG or PNG recommended.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_cc_cards"
+                },
+                {
+                    "key": "field_cc_card_title",
+                    "label": "Title",
+                    "name": "cc_card_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Card heading.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Ants",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_cc_cards"
+                },
+                {
+                    "key": "field_cc_card_content",
+                    "label": "Content",
+                    "name": "cc_card_content",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Short description displayed below the title.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "placeholder": "Specializing in ant control...",
+                    "new_lines": "br",
+                    "parent_repeater": "field_cc_cards"
+                },
+                {
+                    "key": "field_cc_card_link_text",
+                    "label": "Link Text",
+                    "name": "cc_card_link_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text for the card link.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Learn more",
+                    "maxlength": "",
+                    "placeholder": "Learn more",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_cc_cards"
+                },
+                {
+                    "key": "field_cc_card_link_url",
+                    "label": "Link URL",
+                    "name": "cc_card_link_url",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "URL the card link points to.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_cc_cards"
+                }
+            ]
+        },
+        {
+            "key": "field_cc_tab_ctas",
+            "label": "CTA Buttons",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_cc_primary_cta_text",
+            "label": "Primary CTA Text",
+            "name": "cc_primary_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text for the primary (orange) button below the carousel.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Protect My Property",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cc_primary_cta_url",
+            "label": "Primary CTA URL",
+            "name": "cc_primary_cta_url",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cc_secondary_cta_text",
+            "label": "Secondary CTA Text",
+            "name": "cc_secondary_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text for the secondary (outline) button. If URL starts with tel: a phone icon is shown automatically.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "(833)-887-7378",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cc_secondary_cta_url",
+            "label": "Secondary CTA URL",
+            "name": "cc_secondary_cta_url",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/card-carousel"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1774981867
+}

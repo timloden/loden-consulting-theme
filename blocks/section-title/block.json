@@ -1,0 +1,18 @@
+{
+  "apiVersion": 3,
+  "name": "acf/section-title",
+  "title": "Section Title",
+  "description": "Centered section heading with optional eyebrow badge, title, title highlight, and subtitle.",
+  "category": "loden-consulting",
+  "icon": "heading",
+  "keywords": ["section", "title", "heading", "eyebrow"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "jsx": false
+  }
+}

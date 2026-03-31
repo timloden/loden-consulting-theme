@@ -1,0 +1,18 @@
+{
+  "apiVersion": 3,
+  "name": "acf/card-carousel",
+  "title": "Card Carousel",
+  "description": "Horizontally scrollable daisyUI carousel of icon cards with optional CTA buttons below.",
+  "category": "loden-consulting",
+  "icon": "slides",
+  "keywords": ["carousel", "cards", "slider", "gallery"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "jsx": false
+  }
+}

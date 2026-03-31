@@ -55,7 +55,8 @@
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* Heading font sizes */
-  --font-size-h1: 5rem;       /* 80px - Hero titles */
+  --font-size-h1: 5rem;       /* 80px - Hero titles (desktop) */
+  --font-size-h1-mobile: 3rem; /* 48px - Hero titles (mobile) */
   --font-size-h2: 3rem;       /* 48px - Section titles */
   --font-size-h3: 3rem;       /* 48px - Section titles (bold variant) */
   --font-size-h4: 1.875rem;   /* 30px - Card titles */

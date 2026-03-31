@@ -1,4 +1,5 @@
 {
+	"apiVersion": 3,
 	"name": "acf/example-block",
 	"title": "Example Block",
 	"description": "A starter block for the Loden Consulting theme.",

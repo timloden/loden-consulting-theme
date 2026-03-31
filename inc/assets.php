@@ -80,6 +80,23 @@ function loden_consulting_block_editor_assets() {
 add_action( 'enqueue_block_editor_assets', 'loden_consulting_block_editor_assets' );
 
 /**
+ * Load Google Fonts in the block editor for correct typography in block previews.
+ */
+function loden_consulting_editor_fonts() {
+	if ( ! is_admin() ) {
+		return;
+	}
+	wp_enqueue_style(
+		'loden-consulting-editor-google-fonts',
+		'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap',
+		array(),
+		null
+	);
+}
+add_action( 'enqueue_block_assets', 'loden_consulting_editor_fonts' );
+
+
+/**
  * Add preconnect for external resources
  */
 function loden_consulting_resource_hints( $urls, $relation_type ) {

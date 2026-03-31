@@ -1,0 +1,477 @@
+{
+    "key": "group_hero_block",
+    "title": "Hero Block",
+    "fields": [
+        {
+            "key": "field_hero_tab_content",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_hero_title",
+            "label": "Title",
+            "name": "hero_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main headline rendered as an H1 tag.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Reclaim Your Home. Simply.",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_subtitle",
+            "label": "Subtitle",
+            "name": "hero_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional subheading displayed below the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_text_color",
+            "label": "Text Colour",
+            "name": "hero_text_color",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Choose light (white) text for dark backgrounds, or dark text for light backgrounds.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "Light (white)",
+                "dark": "Dark (#12242B)"
+            },
+            "default_value": "light",
+            "return_format": "value",
+            "layout": "horizontal",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_hero_value_props",
+            "label": "Value Props",
+            "name": "hero_value_props",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "List of checkmark bullet points displayed below the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Value Prop",
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_hero_vp_text",
+                    "label": "Text",
+                    "name": "value_prop_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "Eco-Friendly & Pet Safe",
+                    "prepend": "",
+                    "append": "",
+                    "default_value": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_hero_value_props"
+                }
+            ]
+        },
+        {
+            "key": "field_hero_tab_background",
+            "label": "Background",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_hero_bg_image",
+            "label": "Background Image",
+            "name": "hero_background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Full-width background image for the hero section.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_hero_bg_image_mobile",
+            "label": "Background Image (Mobile)",
+            "name": "hero_background_image_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Optional: a separate image used on mobile screens. Falls back to the desktop image if not set.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_hero_bg_color",
+            "label": "Background Colour",
+            "name": "hero_background_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Fallback background colour used when no image is set.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#12242B",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
+        },
+        {
+            "key": "field_hero_top_padding",
+            "label": "Add Top Padding for Fixed Header",
+            "name": "hero_top_padding",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enable to push hero content below the fixed navigation bar. Turn on whenever the hero is the first block on a page.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_hero_tab_ctas",
+            "label": "CTAs",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_hero_primary_cta_text",
+            "label": "Primary CTA Text",
+            "name": "hero_primary_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Label for the primary (orange) button.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Get Your Free Quote",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_primary_cta_link",
+            "label": "Primary CTA Link",
+            "name": "hero_primary_cta_link",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "URL or tel: link for the primary button (e.g. https://... or tel:+18338877378).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "https://",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_secondary_cta_text",
+            "label": "Secondary CTA Text",
+            "name": "hero_secondary_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Label for the secondary (outline) button.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Call (833)-887-7378",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_secondary_cta_link",
+            "label": "Secondary CTA Link",
+            "name": "hero_secondary_cta_link",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "URL or tel: link for the secondary button (e.g. tel:+18338877378).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "tel:+18338877378",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_tab_form",
+            "label": "Form Card",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_hero_form_eyebrow",
+            "label": "Form Eyebrow",
+            "name": "hero_form_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small accent label above the form title (e.g. \"Limited Time:\").",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Limited Time:",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_form_title",
+            "label": "Form Title",
+            "name": "hero_form_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bold heading inside the form card.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "First Service Only $97",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_form_response_time",
+            "label": "Response Time Text",
+            "name": "hero_form_response_time",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Status bar text shown above the form (e.g. \"We're open now - ~5 min response time\").",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "We're open now - ~5 min response time",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_form_tooltip",
+            "label": "Response Time Tooltip Content",
+            "name": "hero_form_tooltip",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Content shown in the daisyUI tooltip when the user hovers the info icon next to the response time text.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_hero_form",
+            "label": "Gravity Form",
+            "name": "hero_form",
+            "aria-label": "",
+            "type": "forms",
+            "instructions": "Select the Gravity Form to display. Requires the \"Gravity Forms Field for ACF\" plugin.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "post_object",
+            "allow_null": 0,
+            "multiple": 0,
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Hero block.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1774908975
+}

@@ -8,7 +8,13 @@
       "Bash(cd:*)",
       "Bash(cd /Users/timloden/Local\\\\ Sites/loden-consulting/app/public/wp-content/themes/loden-consulting-theme && npm run build:css:*)",
       "Bash(npm run:*)",
-      "Bash(php -l \"/Users/timloden/Local Sites/loden-consulting/app/public/wp-content/themes/loden-consulting-theme/footer.php\")"
+      "Bash(php -l \"/Users/timloden/Local Sites/loden-consulting/app/public/wp-content/themes/loden-consulting-theme/footer.php\")",
+      "Bash(xargs ls:*)",
+      "Bash(node -e \":*)",
+      "Bash(npx postcss:*)",
+      "Bash(node_modules/.bin/postcss --help)",
+      "Bash(grep -E \"\\\\.\\(php|md|txt|json\\)$\")",
+      "Bash(npm install:*)"
     ]
   }
 }

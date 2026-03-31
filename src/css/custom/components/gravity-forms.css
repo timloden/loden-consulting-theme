@@ -1,0 +1,337 @@
+/**
+ * Gravity Forms — Custom Styles
+ *
+ * Overrides GF defaults to match the Simple Pest design system.
+ * Targets GF 2.5+ gravity-theme HTML structure.
+ *
+ * Label visibility and placement is controlled via Gravity Forms settings
+ * (Form Editor → field settings → Label Placement). No floating label JS/CSS.
+ *
+ * States:
+ *   Default  — border #D9D9D9, placeholder #ABABAB, bg #FCFCFC
+ *   Active   — border #45B5E8, caret #45B5E8
+ *   Filled   — border #D9D9D9, text #000
+ *   Error    — red validation message below field
+ */
+
+/* ==========================================================================
+   Layout & Field Wrapper
+   ========================================================================== */
+
+.gform_wrapper .gform_fields {
+  row-gap: 0.875rem;
+}
+
+/* ==========================================================================
+   Labels — styled but positioned by GF settings
+   ========================================================================== */
+
+.gform_wrapper .gfield_label {
+  font-size: 0.875rem !important;  /* 14px */
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin-bottom: 0.375rem !important;
+  display: block;
+}
+
+.gform_wrapper .gfield_required {
+  color: #45B5E8;
+  margin-left: 0.1em;
+}
+
+/* ==========================================================================
+   Text / Email / Tel / Number / URL / Password inputs
+   ========================================================================== */
+
+.gform_wrapper input[type="text"],
+.gform_wrapper input[type="email"],
+.gform_wrapper input[type="tel"],
+.gform_wrapper input[type="number"],
+.gform_wrapper input[type="url"],
+.gform_wrapper input[type="password"] {
+  width: 100% !important;
+  background-color: #FCFCFC !important;
+  border: 1px solid #D9D9D9 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  min-height: 3rem !important;
+  font-size: 0.9375rem !important;  /* 15px */
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  caret-color: #45B5E8 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.gform_wrapper input[type="text"]::placeholder,
+.gform_wrapper input[type="email"]::placeholder,
+.gform_wrapper input[type="tel"]::placeholder,
+.gform_wrapper input[type="number"]::placeholder,
+.gform_wrapper input[type="url"]::placeholder,
+.gform_wrapper input[type="password"]::placeholder {
+  color: #ABABAB !important;
+  opacity: 1 !important;
+}
+
+/* Focus */
+.gform_wrapper input[type="text"]:focus,
+.gform_wrapper input[type="email"]:focus,
+.gform_wrapper input[type="tel"]:focus,
+.gform_wrapper input[type="number"]:focus,
+.gform_wrapper input[type="url"]:focus,
+.gform_wrapper input[type="password"]:focus {
+  border-color: #45B5E8 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Error */
+.gform_wrapper .gfield_error input[type="text"],
+.gform_wrapper .gfield_error input[type="email"],
+.gform_wrapper .gfield_error input[type="tel"],
+.gform_wrapper .gfield_error input[type="number"],
+.gform_wrapper .gfield_error input[type="url"],
+.gform_wrapper .gfield_error input[type="password"] {
+  border-color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   Textarea
+   ========================================================================== */
+
+.gform_wrapper textarea {
+  width: 100% !important;
+  background-color: #FCFCFC !important;
+  border: 1px solid #D9D9D9 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.9375rem !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  caret-color: #45B5E8 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease !important;
+  resize: vertical;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.gform_wrapper textarea::placeholder {
+  color: #ABABAB !important;
+  opacity: 1 !important;
+}
+
+.gform_wrapper textarea:focus {
+  border-color: #45B5E8 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.gform_wrapper .gfield_error textarea {
+  border-color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   Select / Dropdown
+   ========================================================================== */
+
+.gform_wrapper select {
+  width: 100% !important;
+  background-color: #FCFCFC !important;
+  border: 1px solid #D9D9D9 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 2.5rem 0.75rem 1rem !important;
+  min-height: 3rem !important;
+  font-size: 0.9375rem !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%23ABABAB' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+  cursor: pointer;
+  transition: border-color 0.2s ease !important;
+}
+
+/* Placeholder option */
+.gform_wrapper select option[value=""] {
+  color: #ABABAB;
+}
+
+.gform_wrapper select:focus {
+  border-color: #45B5E8 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.gform_wrapper .gfield_error select {
+  border-color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   Validation / Error Messages
+   ========================================================================== */
+
+.gform_wrapper .gfield_error .gfield_validation_message,
+.gform_wrapper .gfield_error .validation_message,
+.gform_wrapper .gfield_validation_message {
+  color: #ef4444 !important;
+  font-size: 0.75rem !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 500 !important;
+  margin-top: 0.375rem !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.gform_wrapper .gform_validation_errors {
+  border: 1px solid #ef4444 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.875rem 1rem !important;
+  background-color: #fef2f2 !important;
+  margin-bottom: 1rem !important;
+}
+
+.gform_wrapper .gform_validation_errors > h2 {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #ef4444 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   Checkbox & Consent
+   ========================================================================== */
+
+/* Consent field layout */
+.gform_wrapper .ginput_container_consent {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.625rem !important;
+}
+
+/* Checkbox choices layout */
+.gform_wrapper .gfield_checkbox {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gform_wrapper .gchoice {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.625rem !important;
+}
+
+/* The checkbox input */
+.gform_wrapper input[type="checkbox"] {
+  flex-shrink: 0 !important;
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  margin: 0.125rem 0 0 !important;
+  border: 1.5px solid #D9D9D9 !important;
+  border-radius: 0.25rem !important;
+  background-color: #ffffff !important;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  padding: 0 !important;
+  min-height: auto !important;
+}
+
+.gform_wrapper input[type="checkbox"]:checked {
+  background-color: #45B5E8 !important;
+  border-color: #45B5E8 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6L5 8.5L9.5 3.5' stroke='white' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+/* Checkbox / consent label text */
+.gform_wrapper .gchoice label,
+.gform_wrapper .ginput_container_consent label {
+  font-size: 0.8125rem !important;  /* 13px */
+  font-weight: 400 !important;
+  color: #4b5563 !important;
+  line-height: 1.4 !important;
+  cursor: pointer;
+}
+
+.gform_wrapper .ginput_container_consent a {
+  color: #45B5E8;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Submit Button — Navy (#206F93)
+   ========================================================================== */
+
+.gform_wrapper .gform_footer,
+.gform_wrapper .gform_page_footer {
+  padding: 0 !important;
+  margin-top: 1rem !important;
+  border: none !important;
+}
+
+.gform_wrapper .gform_button,
+.gform_wrapper input[type="submit"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  background-color: var(--color-navy) !important;  /* #206F93 */
+  color: #ffffff !important;
+  border: 2px solid var(--color-navy) !important;
+  border-radius: 9999px !important;
+  padding: 0.875rem 1.5rem !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-p3) !important;  /* 16px */
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  min-height: auto !important;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.gform_wrapper .gform_button:hover,
+.gform_wrapper input[type="submit"]:hover {
+  background-color: #12242B !important;  /* dark-blue on hover */
+  border-color: #12242B !important;
+}
+
+/* ==========================================================================
+   Misc cleanup
+   ========================================================================== */
+
+.gform_wrapper .gfield_description {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+  padding: 0;
+}
+
+.gform_wrapper .gform_ajax_spinner {
+  margin-left: 0.5rem;
+}

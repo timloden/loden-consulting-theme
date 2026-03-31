@@ -1,1 +1,522 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",()=>{!function(){document.querySelectorAll(".mobile-nav-toggle").forEach(e=>{e.addEventListener("click",()=>{const t="true"===e.getAttribute("aria-expanded"),o=e.closest(".mobile-nav-item");document.querySelectorAll(".mobile-nav-item.is-open").forEach(e=>{if(e!==o){e.classList.remove("is-open");const t=e.querySelector(".mobile-nav-toggle");t&&t.setAttribute("aria-expanded","false")}}),e.setAttribute("aria-expanded",String(!t)),o.classList.toggle("is-open",!t)})});const e=document.getElementById("mobile-nav");e&&e.addEventListener("change",()=>{e.checked||document.querySelectorAll(".mobile-nav-item.is-open").forEach(e=>{e.classList.remove("is-open");const t=e.querySelector(".mobile-nav-toggle");t&&t.setAttribute("aria-expanded","false")})}),document.addEventListener("keydown",t=>{"Escape"===t.key&&e?.checked&&(e.checked=!1,e.dispatchEvent(new Event("change")))})}(),function(){const e=document.querySelectorAll(".mega-menu-item.has-mega-menu");if(!e.length)return;const t=e=>{e.classList.remove("is-open");const t=e.querySelector(".mega-menu-trigger");t&&t.setAttribute("aria-expanded","false")};e.forEach(o=>{const n=o.querySelector(".mega-menu-trigger");n&&(n.addEventListener("click",n=>{n.stopPropagation(),o.classList.contains("is-open")?t(o):(o=>{e.forEach(e=>{e!==o&&t(e)}),o.classList.add("is-open");const n=o.querySelector(".mega-menu-trigger");n&&n.setAttribute("aria-expanded","true")})(o)}),n.addEventListener("keydown",e=>{"Escape"===e.key&&t(o)}))}),document.addEventListener("click",o=>{o.target.closest(".mega-menu-item")||e.forEach(t)}),document.addEventListener("keydown",o=>{"Escape"===o.key&&e.forEach(t)})}(),function(){const e=document.querySelector("[data-header]");if(!e)return;let t=!1;const o=()=>{e.classList.toggle("is-scrolled",window.scrollY>80),t=!1};window.addEventListener("scroll",()=>{t||(requestAnimationFrame(o),t=!0)},{passive:!0}),o()}(),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){const t=this.getAttribute("href");if("#"===t||!t)return;const o=document.querySelector(t);o&&(e.preventDefault(),o.scrollIntoView({behavior:"smooth",block:"start"}),history.pushState(null,null,t),o.setAttribute("tabindex","-1"),o.focus({preventScroll:!0}))})}),function(){if("loading"in HTMLImageElement.prototype)document.querySelectorAll('img[loading="lazy"]').forEach(e=>{e.dataset.src&&(e.src=e.dataset.src)});else{const e=document.querySelectorAll('img[loading="lazy"]');if("IntersectionObserver"in window){const t=new IntersectionObserver((e,t)=>{e.forEach(e=>{if(e.isIntersecting){const o=e.target;o.dataset.src&&(o.src=o.dataset.src),o.removeAttribute("loading"),t.unobserve(o)}})});e.forEach(e=>t.observe(e))}else e.forEach(e=>{e.dataset.src&&(e.src=e.dataset.src)})}}(),window.openModal=e=>{const t=document.getElementById(e);t&&"DIALOG"===t.tagName&&t.showModal()},window.closeModal=e=>{const t=document.getElementById(e);t&&"DIALOG"===t.tagName&&t.close()},document.querySelectorAll("dialog.modal").forEach(e=>{e.addEventListener("close",()=>{document.body.classList.remove("overflow-hidden")}),e.addEventListener("cancel",e=>{document.body.classList.remove("overflow-hidden")})}),document.addEventListener("click",e=>{document.querySelectorAll(".dropdown").forEach(t=>{if(!t.contains(e.target)){const e=t.querySelector("[tabindex]");e&&document.activeElement===e&&e.blur()}})}),document.addEventListener("keydown",e=>{if("Escape"===e.key){const e=document.activeElement?.closest(".dropdown");e&&document.activeElement.blur()}}),window.openDrawer=e=>{const t=document.getElementById(e);t&&"checkbox"===t.type&&(t.checked=!0)},window.closeDrawer=e=>{const t=document.getElementById(e);t&&"checkbox"===t.type&&(t.checked=!1)},window.toggleDrawer=e=>{const t=document.getElementById(e);t&&"checkbox"===t.type&&(t.checked=!t.checked)},document.querySelectorAll(".drawer-toggle").forEach(e=>{document.addEventListener("keydown",t=>{"Escape"===t.key&&e.checked&&(e.checked=!1)})}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches,o=e||(t?"dark":"light");document.documentElement.setAttribute("data-theme",o),window.toggleTheme=()=>{const e="dark"===document.documentElement.getAttribute("data-theme")?"light":"dark";document.documentElement.setAttribute("data-theme",e),localStorage.setItem("theme",e),document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.checked="dark"===e})},window.setTheme=e=>{document.documentElement.setAttribute("data-theme",e),localStorage.setItem("theme",e)},document.querySelectorAll("[data-theme-toggle]").forEach(e=>{e.checked="dark"===o,e.addEventListener("change",()=>{window.toggleTheme()})}),window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{localStorage.getItem("theme")||document.documentElement.setAttribute("data-theme",e.matches?"dark":"light")})}()})})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+/*!****************************!*\
+  !*** ./src/js/frontend.js ***!
+  \****************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   debounce: () => (/* binding */ debounce),
+/* harmony export */   throttle: () => (/* binding */ throttle)
+/* harmony export */ });
+/**
+ * Frontend JavaScript
+ *
+ * Main JavaScript file for the theme frontend.
+ */
+
+// Import WordPress dependencies if needed
+// import domReady from '@wordpress/dom-ready';
+
+/**
+ * Initialize theme functionality when DOM is ready
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  initMobileMenu();
+  initMegaMenu();
+  initHeaderScroll();
+  initSmoothScroll();
+  initLazyLoading();
+  initDaisyUI();
+});
+
+/**
+ * Desktop mega menu
+ *
+ * Opens/closes .mega-menu-panel by toggling .is-open on the parent <li>.
+ * Panels open on click and close when clicking the trigger again, clicking
+ * outside, or pressing Escape.
+ */
+function initMegaMenu() {
+  const items = document.querySelectorAll('.mega-menu-item.has-mega-menu');
+  if (!items.length) return;
+  const closeItem = item => {
+    item.classList.remove('is-open');
+    const trigger = item.querySelector('.mega-menu-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  };
+  const openItem = item => {
+    // Close any other open panels first.
+    items.forEach(other => {
+      if (other !== item) closeItem(other);
+    });
+    item.classList.add('is-open');
+    const trigger = item.querySelector('.mega-menu-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+  };
+  items.forEach(item => {
+    const trigger = item.querySelector('.mega-menu-trigger');
+
+    // Click trigger toggles the panel.
+    if (trigger) {
+      trigger.addEventListener('click', e => {
+        e.stopPropagation();
+        item.classList.contains('is-open') ? closeItem(item) : openItem(item);
+      });
+
+      // Keyboard: Enter / Space already fires click on <button>; Escape closes.
+      trigger.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeItem(item);
+      });
+    }
+  });
+
+  // Click outside closes all open panels.
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.mega-menu-item')) {
+      items.forEach(closeItem);
+    }
+  });
+
+  // Escape key anywhere closes all open panels.
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') items.forEach(closeItem);
+  });
+}
+
+/**
+ * Header scroll behaviour
+ *
+ * Adds `.is-scrolled` to [data-header] once the user scrolls past the
+ * threshold. CSS in header.css handles the transparent → white transition
+ * and the logo swap.
+ */
+function initHeaderScroll() {
+  const header = document.querySelector('[data-header]');
+  if (!header) return;
+  const SCROLL_THRESHOLD = 80; // px before the header changes state
+  let ticking = false;
+  const updateHeader = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > SCROLL_THRESHOLD);
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, {
+    passive: true
+  });
+
+  // Apply correct state immediately (e.g. on refresh mid-page).
+  updateHeader();
+}
+
+/**
+ * Mobile menu — accordion sub-menus + drawer reset on close.
+ *
+ * The full-screen panel is opened/closed by the daisyUI drawer checkbox
+ * (#mobile-nav). This function handles:
+ *  1. Accordion toggles for items with sub-menus (.mobile-nav-toggle).
+ *  2. Collapsing all open sub-menus when the drawer closes (so the menu
+ *     is always in its default state next time it opens).
+ *  3. Closing the drawer on Escape key.
+ */
+function initMobileMenu() {
+  // ── Accordion toggles ──────────────────────────────────────────────────────
+  document.querySelectorAll('.mobile-nav-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      const item = toggle.closest('.mobile-nav-item');
+
+      // Close any other open sibling (accordion — only one open at a time).
+      document.querySelectorAll('.mobile-nav-item.is-open').forEach(openItem => {
+        if (openItem !== item) {
+          openItem.classList.remove('is-open');
+          const siblingToggle = openItem.querySelector('.mobile-nav-toggle');
+          if (siblingToggle) siblingToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      item.classList.toggle('is-open', !isOpen);
+    });
+  });
+
+  // ── Reset state when drawer closes ─────────────────────────────────────────
+  const drawerToggle = document.getElementById('mobile-nav');
+  if (drawerToggle) {
+    drawerToggle.addEventListener('change', () => {
+      if (!drawerToggle.checked) {
+        // Collapse all open sub-menus so the menu is fresh on next open.
+        document.querySelectorAll('.mobile-nav-item.is-open').forEach(item => {
+          item.classList.remove('is-open');
+          const toggle = item.querySelector('.mobile-nav-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  }
+
+  // ── Escape key closes the drawer ───────────────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawerToggle?.checked) {
+      drawerToggle.checked = false;
+      // Trigger the change event manually so the reset above runs.
+      drawerToggle.dispatchEvent(new Event('change'));
+    }
+  });
+}
+
+/**
+ * Smooth scroll for anchor links
+ */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+
+      // Skip if it's just "#" or empty
+      if (targetId === '#' || !targetId) {
+        return;
+      }
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        // Update URL without jumping
+        history.pushState(null, null, targetId);
+
+        // Set focus for accessibility
+        targetElement.setAttribute('tabindex', '-1');
+        targetElement.focus({
+          preventScroll: true
+        });
+      }
+    });
+  });
+}
+
+/**
+ * Lazy loading enhancement for images
+ * Note: Modern browsers support native lazy loading, this adds fallback behavior
+ */
+function initLazyLoading() {
+  // Check if native lazy loading is supported
+  if ('loading' in HTMLImageElement.prototype) {
+    // Native lazy loading is supported
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      // Ensure data-src is applied if present
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+      }
+    });
+  } else {
+    // Fallback for older browsers using Intersection Observer
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+            }
+            img.removeAttribute('loading');
+            observer.unobserve(img);
+          }
+        });
+      });
+      images.forEach(img => imageObserver.observe(img));
+    } else {
+      // Final fallback: just load all images
+      images.forEach(img => {
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+        }
+      });
+    }
+  }
+}
+
+/**
+ * Utility: Debounce function for performance
+ *
+ * @param {Function} func - Function to debounce
+ * @param {number} wait - Wait time in milliseconds
+ * @return {Function} Debounced function
+ */
+function debounce(func, wait = 100) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+/**
+ * Utility: Throttle function for performance
+ *
+ * @param {Function} func - Function to throttle
+ * @param {number} limit - Limit in milliseconds
+ * @return {Function} Throttled function
+ */
+function throttle(func, limit = 100) {
+  let inThrottle;
+  return function executedFunction(...args) {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
+    }
+  };
+}
+
+/* ==========================================================================
+   daisyUI Helpers
+   ========================================================================== */
+
+/**
+ * Initialize daisyUI interactive components
+ */
+function initDaisyUI() {
+  initModals();
+  initDropdowns();
+  initDrawers();
+  initThemeToggle();
+}
+
+/**
+ * Modal helpers using native <dialog> element
+ *
+ * Usage:
+ * <button onclick="window.openModal('my-modal')">Open</button>
+ * <dialog id="my-modal" class="modal">
+ *   <div class="modal-box">
+ *     <h3>Title</h3>
+ *     <p>Content</p>
+ *     <div class="modal-action">
+ *       <button onclick="window.closeModal('my-modal')" class="btn">Close</button>
+ *     </div>
+ *   </div>
+ *   <form method="dialog" class="modal-backdrop">
+ *     <button>close</button>
+ *   </form>
+ * </dialog>
+ */
+function initModals() {
+  // Global modal open function
+  window.openModal = id => {
+    const modal = document.getElementById(id);
+    if (modal && modal.tagName === 'DIALOG') {
+      modal.showModal();
+    }
+  };
+
+  // Global modal close function
+  window.closeModal = id => {
+    const modal = document.getElementById(id);
+    if (modal && modal.tagName === 'DIALOG') {
+      modal.close();
+    }
+  };
+
+  // Close modal on escape key (native dialog behavior, but ensure cleanup)
+  document.querySelectorAll('dialog.modal').forEach(modal => {
+    modal.addEventListener('close', () => {
+      // Any cleanup needed when modal closes
+      document.body.classList.remove('overflow-hidden');
+    });
+    modal.addEventListener('cancel', e => {
+      // Handle escape key
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
+}
+
+/**
+ * Dropdown enhancement - close on outside click
+ *
+ * Usage:
+ * <div class="dropdown" data-dropdown>
+ *   <label tabindex="0" class="btn m-1">Click</label>
+ *   <ul tabindex="0" class="dropdown-content menu">
+ *     <li><a>Item 1</a></li>
+ *   </ul>
+ * </div>
+ */
+function initDropdowns() {
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', e => {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        // Remove focus to close the dropdown
+        const focusable = dropdown.querySelector('[tabindex]');
+        if (focusable && document.activeElement === focusable) {
+          focusable.blur();
+        }
+      }
+    });
+  });
+
+  // Close dropdowns on escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const activeDropdown = document.activeElement?.closest('.dropdown');
+      if (activeDropdown) {
+        document.activeElement.blur();
+      }
+    }
+  });
+}
+
+/**
+ * Drawer helpers for mobile navigation
+ *
+ * Usage:
+ * <div class="drawer">
+ *   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+ *   <div class="drawer-content">
+ *     <label for="my-drawer" class="btn btn-primary drawer-button">Open</label>
+ *   </div>
+ *   <div class="drawer-side">
+ *     <label for="my-drawer" class="drawer-overlay"></label>
+ *     <ul class="menu">...</ul>
+ *   </div>
+ * </div>
+ */
+function initDrawers() {
+  // Global drawer toggle functions
+  window.openDrawer = id => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = true;
+    }
+  };
+  window.closeDrawer = id => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = false;
+    }
+  };
+  window.toggleDrawer = id => {
+    const toggle = document.getElementById(id);
+    if (toggle && toggle.type === 'checkbox') {
+      toggle.checked = !toggle.checked;
+    }
+  };
+
+  // Close drawer on escape key
+  document.querySelectorAll('.drawer-toggle').forEach(toggle => {
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && toggle.checked) {
+        toggle.checked = false;
+      }
+    });
+  });
+}
+
+/**
+ * Theme toggle (light/dark mode)
+ *
+ * Usage:
+ * <button onclick="window.toggleTheme()" class="btn">Toggle Theme</button>
+ *
+ * Or with a swap component:
+ * <label class="swap swap-rotate">
+ *   <input type="checkbox" data-theme-toggle />
+ *   <svg class="swap-on ...">sun icon</svg>
+ *   <svg class="swap-off ...">moon icon</svg>
+ * </label>
+ */
+function initThemeToggle() {
+  // Check for saved theme preference or default to system preference
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+  // Apply initial theme
+  document.documentElement.setAttribute('data-theme', initialTheme);
+
+  // Global theme toggle function
+  window.toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Update any theme toggle checkboxes
+    document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+      toggle.checked = newTheme === 'dark';
+    });
+  };
+
+  // Global set theme function
+  window.setTheme = theme => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  // Initialize theme toggle checkboxes
+  document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+    toggle.checked = initialTheme === 'dark';
+    toggle.addEventListener('change', () => {
+      window.toggleTheme();
+    });
+  });
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    }
+  });
+}
+/******/ })()
+;
+//# sourceMappingURL=frontend.js.map

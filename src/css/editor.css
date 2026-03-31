@@ -1,20 +1,33 @@
-/* Editor-specific styles */
-@import "tailwindcss";
-@import "./config.css";
-@import "./custom/base.css";
-@import "./custom/utilities.css";
+/**
+ * Block editor styles.
+ *
+ * Imports the same CSS as app.css (the frontend stylesheet). The editor
+ * PostCSS config (postcss-editor/) processes this through three extra steps:
+ *
+ *   1. postcss-remove-layers  — strips @layer so the CSS is valid when
+ *      nested inside .editor-styles-wrapper selectors.
+ *   2. postcss-prefix-selector — prefixes every rule with
+ *      .editor-styles-wrapper so styles are scoped to the editor canvas
+ *      and don't bleed into the WP admin chrome.
+ *   3. :root/:host/body selectors are rewritten to .editor-styles-wrapper
+ *      so CSS custom properties (design tokens, fonts) are set on the
+ *      editor wrapper and inherited by all block content.
+ *
+ * The result: block previews in the editor look identical to the frontend.
+ */
+@import "./app.css";
 
-/* Editor-specific adjustments */
+/* ==========================================================================
+   Editor-only overrides
+   Styles that only apply in the block editor, not on the frontend.
+   ========================================================================== */
+
+/* White canvas background — WP default is light gray */
 .editor-styles-wrapper {
-  font-family: var(--font-sans);
+  background-color: #fff !important;
 }
 
-/* Ensure blocks have proper spacing in editor */
-.editor-styles-wrapper .wp-block {
-  max-width: 100%;
-}
-
-/* ACF block preview styles */
-.acf-block-preview {
-  padding: 1rem;
+/* Post title — constrain to a sensible editor size */
+.wp-block-post-title {
+  font-size: 2rem;
 }

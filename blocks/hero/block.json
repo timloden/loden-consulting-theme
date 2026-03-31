@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "acf/hero",
+	"title": "Hero",
+	"description": "Full-width hero block with background image, headline, value props, CTAs, and an optional form card.",
+	"category": "loden-consulting",
+	"icon": "cover-image",
+	"keywords": ["hero", "banner", "header", "cta", "form"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	}
+}

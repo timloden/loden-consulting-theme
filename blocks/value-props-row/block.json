@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "acf/value-props-row",
+	"title": "Value Props Row",
+	"description": "A row of up to 4 value propositions with an optional title and subtitle. Supports review-style items (with star ratings) and stat-style items (title + label).",
+	"category": "loden-consulting",
+	"icon": "editor-table",
+	"keywords": ["value props", "stats", "reviews", "social proof", "trust bar"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	}
+}

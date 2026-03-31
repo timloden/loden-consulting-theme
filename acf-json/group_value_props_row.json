@@ -1,0 +1,272 @@
+{
+    "key": "group_value_props_row",
+    "title": "Value Props Row",
+    "fields": [
+        {
+            "key": "field_vpr_tab_content",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_vpr_title",
+            "label": "Title",
+            "name": "vpr_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional heading displayed to the left of the value props on desktop. Renders as an H2.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Providing Expert Pest Control",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_vpr_title_highlight",
+            "label": "Title Highlight",
+            "name": "vpr_title_highlight",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional text appended to the title and displayed in the brand accent colour (Simple Blue). E.g. \"Since 2019\".",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Since 2019",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_vpr_subtitle",
+            "label": "Subtitle",
+            "name": "vpr_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional supporting text displayed below the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Simple Pest provides high-quality pest control for families and businesses.",
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_vpr_tab_props",
+            "label": "Value Props",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_vpr_value_props",
+            "label": "Value Props",
+            "name": "vpr_value_props",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add up to 4 value proposition items. Each item can be a review (shows star rating) or a stat (shows value + label).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 4,
+            "layout": "block",
+            "button_label": "Add Value Prop",
+            "rows_per_page": 20,
+            "collapsed": "field_vpr_prop_value",
+            "sub_fields": [
+                {
+                    "key": "field_vpr_prop_type",
+                    "label": "Style",
+                    "name": "vpr_prop_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Review style shows a star rating. Stat style shows a value and label only.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "review": "Review (star rating)",
+                        "stat": "Stat (value + label)"
+                    },
+                    "default_value": "stat",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_vpr_value_props"
+                },
+                {
+                    "key": "field_vpr_prop_icon",
+                    "label": "Icon",
+                    "name": "vpr_prop_icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Upload an icon (SVG or PNG recommended). Displayed at 36×36px.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "preview_size": "thumbnail",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_vpr_value_props"
+                },
+                {
+                    "key": "field_vpr_prop_value",
+                    "label": "Value",
+                    "name": "vpr_prop_value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "The primary value displayed in large bold text. E.g. \"4.9\", \"15,000+\", \"Fast\".",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "4.9",
+                    "prepend": "",
+                    "append": "",
+                    "default_value": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_vpr_value_props"
+                },
+                {
+                    "key": "field_vpr_prop_label",
+                    "label": "Label",
+                    "name": "vpr_prop_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Secondary label displayed below the value (and stars if review). E.g. \"120 reviews\", \"Homes protected\".",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "120 reviews",
+                    "prepend": "",
+                    "append": "",
+                    "default_value": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_vpr_value_props"
+                },
+                {
+                    "key": "field_vpr_prop_star_count",
+                    "label": "Star Count",
+                    "name": "vpr_prop_star_count",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "Number of filled stars to display (1–5).",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_vpr_prop_type",
+                                "operator": "==",
+                                "value": "review"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 5,
+                    "min": 1,
+                    "max": 5,
+                    "step": 1,
+                    "placeholder": "5",
+                    "prepend": "",
+                    "append": "/ 5",
+                    "parent_repeater": "field_vpr_value_props"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/value-props-row"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Value Props Row block.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1774908975
+}

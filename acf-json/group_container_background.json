@@ -1,0 +1,161 @@
+{
+    "key": "group_container_background",
+    "title": "Container with Background",
+    "fields": [
+        {
+            "key": "field_cbg_bg_type",
+            "label": "Background Type",
+            "name": "cbg_bg_type",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Solid colour or gradient.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "choices": {
+                "color": "Solid Colour",
+                "gradient": "Gradient"
+            },
+            "default_value": "color",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_cbg_color_preset",
+            "label": "Colour",
+            "name": "cbg_color_preset",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cbg_bg_type",
+                        "operator": "==",
+                        "value": "color"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "choices": {
+                "white": "White",
+                "light-blue": "Light Blue",
+                "gray-50": "Gray 50",
+                "gray-100": "Gray 100",
+                "simple-blue": "Simple Blue",
+                "dark-blue": "Dark Blue"
+            },
+            "default_value": "light-blue",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_cbg_gradient",
+            "label": "Gradient",
+            "name": "cbg_gradient",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cbg_bg_type",
+                        "operator": "==",
+                        "value": "gradient"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "choices": {
+                "sky-to-white": "Sky Blue → White (top to bottom)",
+                "white-to-sky": "White → Sky Blue (top to bottom)",
+                "blue-diagonal": "Simple Blue → Dark Blue (diagonal)",
+                "light-blue-radial": "Light Blue Radial (centre glow)"
+            },
+            "default_value": "sky-to-white",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_cbg_padding_y",
+            "label": "Vertical Padding",
+            "name": "cbg_padding_y",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "none": "None",
+                "sm": "Small",
+                "md": "Medium (default)",
+                "lg": "Large",
+                "xl": "Extra Large"
+            },
+            "default_value": "md",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_cbg_rounded",
+            "label": "Rounded Corners",
+            "name": "cbg_rounded",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "none": "None",
+                "lg": "Large",
+                "2xl": "2XL",
+                "3xl": "3XL"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/container-background"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Container with Background block.",
+    "show_in_rest": 0,
+    "modified": 1774908975
+}

@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "acf/content-with-image",
+	"title": "Content with Image",
+	"description": "Two-column layout with an image on either the left or right side and inner blocks for the content area.",
+	"category": "loden-consulting",
+	"icon": "columns",
+	"keywords": ["content", "image", "two-column", "split", "media"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	}
+}

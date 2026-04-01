@@ -1,0 +1,180 @@
+{
+    "key": "group_scrolling_marquee",
+    "title": "Scrolling Marquee",
+    "fields": [
+        {
+            "key": "field_sm_tab_content",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_sm_items",
+            "label": "Items",
+            "name": "sm_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Each item is one piece of text in the ticker. Add an icon to appear alongside it.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "min": 1,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Item",
+            "rows_per_page": 20,
+            "collapsed": "field_sm_item_text",
+            "sub_fields": [
+                {
+                    "key": "field_sm_item_text",
+                    "label": "Text",
+                    "name": "sm_item_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "NO PESTS.",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_sm_items"
+                },
+                {
+                    "key": "field_sm_item_icon",
+                    "label": "Icon",
+                    "name": "sm_item_icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Optional icon displayed before the text.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "return_format": "array",
+                    "library": "all",
+                    "preview_size": "thumbnail",
+                    "min_width": 0, "min_height": 0, "min_size": 0,
+                    "max_width": 0, "max_height": 0, "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_sm_items"
+                }
+            ]
+        },
+        {
+            "key": "field_sm_separator_icon",
+            "label": "Separator Icon",
+            "name": "sm_separator_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Optional icon inserted after each item to visually separate them (e.g. a house icon).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "thumbnail",
+            "min_width": 0, "min_height": 0, "min_size": 0,
+            "max_width": 0, "max_height": 0, "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_sm_tab_settings",
+            "label": "Settings",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_sm_speed",
+            "label": "Speed (seconds)",
+            "name": "sm_speed",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Duration in seconds for one full loop. Lower = faster. Default 30.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": 30,
+            "min": 5,
+            "max": 120,
+            "step": 1,
+            "placeholder": "30",
+            "prepend": "",
+            "append": "s"
+        },
+        {
+            "key": "field_sm_direction",
+            "label": "Direction",
+            "name": "sm_direction",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "left": "Left (default)",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_sm_bg_color",
+            "label": "Background Colour",
+            "name": "sm_bg_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "white": "White",
+                "light-blue": "Light Blue",
+                "dark-blue": "Dark Blue"
+            },
+            "default_value": "white",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/scrolling-marquee"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Scrolling Marquee block.",
+    "show_in_rest": 0,
+    "modified": 1774908975
+}

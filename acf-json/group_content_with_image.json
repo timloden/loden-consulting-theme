@@ -1,0 +1,361 @@
+{
+    "key": "group_content_with_image",
+    "title": "Content with Image",
+    "fields": [
+        {
+            "key": "field_cwi_tab_image",
+            "label": "Image",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_cwi_image",
+            "label": "Image",
+            "name": "cwi_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "The image displayed alongside the content column.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_cwi_image_position",
+            "label": "Image Position",
+            "name": "cwi_image_position",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Which side the image appears on desktop.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "default_value": "right",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "layout": "vertical"
+        },
+        {
+            "key": "field_cwi_tab_content",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_cwi_eyebrow",
+            "label": "Eyebrow",
+            "name": "cwi_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small uppercase badge above the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "OUR PROMISE",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cwi_title",
+            "label": "Title",
+            "name": "cwi_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main heading. Renders as H2.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "If the bugs come back, so will we.",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cwi_subtitle",
+            "label": "Subtitle",
+            "name": "cwi_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional subtitle displayed below the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "That's our guarantee!",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cwi_subtitle_font",
+            "label": "Subtitle Font",
+            "name": "cwi_subtitle_font",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Accent = Swister italic (display font). Primary = standard sans-serif.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "accent": "Accent (italic)",
+                "primary": "Primary (sans-serif)"
+            },
+            "default_value": "accent",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "layout": "vertical"
+        },
+        {
+            "key": "field_cwi_text",
+            "label": "Text",
+            "name": "cwi_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Body paragraph displayed below the subtitle.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br",
+            "placeholder": "We stand behind every service we provide. If pests return between scheduled visits, we'll come back and treat your property again — at no additional cost."
+        },
+        {
+            "key": "field_cwi_bullet_points",
+            "label": "Bullet Points",
+            "name": "cwi_bullet_points",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Optional checklist items displayed below the body text.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Bullet Point",
+            "rows_per_page": 20,
+            "collapsed": "field_cwi_bullet_text",
+            "sub_fields": [
+                {
+                    "key": "field_cwi_bullet_text",
+                    "label": "Text",
+                    "name": "cwi_bullet_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Free re-treatment if pests return",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_cwi_bullet_points"
+                }
+            ]
+        },
+        {
+            "key": "field_cwi_tab_ctas",
+            "label": "CTAs",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_cwi_primary_cta_text",
+            "label": "Primary CTA Text",
+            "name": "cwi_primary_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Go Pest-Free Today",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cwi_primary_cta_url",
+            "label": "Primary CTA URL",
+            "name": "cwi_primary_cta_url",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "https:\/\/",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cwi_secondary_cta_text",
+            "label": "Secondary CTA Text",
+            "name": "cwi_secondary_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "For phone links, set the URL to tel:+1xxxxxxxxxx — a phone icon is added automatically.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "(833)-887-7378",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cwi_secondary_cta_url",
+            "label": "Secondary CTA URL",
+            "name": "cwi_secondary_cta_url",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "tel:+18338877378",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/content-with-image"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Content with Image block.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1775068721
+}

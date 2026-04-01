@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "acf/value-props-cards",
+	"title": "Value Props - Cards",
+	"description": "A 3-column grid of value proposition cards. Each card supports an eyebrow badge, icon, title, subtitle, body text, and a CTA link.",
+	"category": "loden-consulting",
+	"icon": "grid-view",
+	"keywords": ["value props", "cards", "features", "services", "benefits"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	}
+}

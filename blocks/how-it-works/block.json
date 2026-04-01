@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "acf/how-it-works",
+	"title": "How It Works - Steps",
+	"description": "Numbered step-by-step process block with optional header image, CTA buttons, and footer note.",
+	"category": "loden-consulting",
+	"icon": "list-view",
+	"keywords": ["how it works", "steps", "process", "numbered", "timeline"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "acf/container-background",
+	"title": "Container with Background",
+	"description": "Full-width wrapper block with a configurable solid color or gradient background. Accepts any inner blocks.",
+	"category": "loden-consulting",
+	"icon": "layout",
+	"keywords": ["container", "background", "wrapper", "section", "gradient"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": true
+	}
+}

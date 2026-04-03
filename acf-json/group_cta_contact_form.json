@@ -1,0 +1,176 @@
+{
+    "key": "group_cta_contact_form",
+    "title": "CTA Contact Form Block",
+    "fields": [
+        {
+            "key": "field_ccf_tab_image",
+            "label": "Image",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_ccf_image",
+            "label": "Image",
+            "name": "ccf_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Photo displayed in the left panel with a dark overlay.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_ccf_image_eyebrow",
+            "label": "Image Eyebrow",
+            "name": "ccf_image_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label overlaid on the image (e.g. \"Limited Time:\").",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Limited Time:",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ccf_image_title",
+            "label": "Image Title",
+            "name": "ccf_image_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bold headline overlaid on the image.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "First service only $97",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ccf_tab_form",
+            "label": "Form",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_ccf_form",
+            "label": "Gravity Form",
+            "name": "ccf_form",
+            "aria-label": "",
+            "type": "forms",
+            "instructions": "Select the Gravity Form to display. Requires the \"Gravity Forms Field for ACF\" plugin.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "post_object",
+            "allow_null": 0,
+            "multiple": 0,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_ccf_bg_color",
+            "label": "Form Panel Background",
+            "name": "ccf_bg_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Background colour for the right (form) panel.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sky-blue-30": "Light Blue",
+                "white": "White"
+            },
+            "default_value": "sky-blue-30",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cta-contact-form"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the CTA Contact Form block.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1775167494
+}

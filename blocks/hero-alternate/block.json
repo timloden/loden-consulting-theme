@@ -1,0 +1,17 @@
+{
+	"apiVersion": 3,
+	"name": "acf/hero-alternate",
+	"title": "Hero (Alternate)",
+	"description": "Simplified hero with eyebrow, title, rich text, offset image on the left, and an optional form card on the right.",
+	"category": "loden-consulting",
+	"icon": "star-filled",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

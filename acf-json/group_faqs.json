@@ -1,0 +1,209 @@
+{
+    "key": "group_faqs",
+    "title": "FAQs Block",
+    "fields": [
+        {
+            "key": "field_faq_tab_header",
+            "label": "Header",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_faq_eyebrow",
+            "label": "Eyebrow",
+            "name": "faq_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label above the title (e.g. \"FAQ Center\").",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "FAQ Center",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_faq_title",
+            "label": "Title",
+            "name": "faq_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main heading for the FAQ section.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Have more questions?",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_faq_cta_text",
+            "label": "CTA Text",
+            "name": "faq_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional button label below the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "View FAQ Center",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_faq_cta_url",
+            "label": "CTA URL",
+            "name": "faq_cta_url",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "URL for the CTA button.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "https:\/\/",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_faq_tab_faqs",
+            "label": "FAQs",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_faq_items",
+            "label": "FAQ Items",
+            "name": "faq_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "List of questions and answers.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add FAQ",
+            "rows_per_page": 20,
+            "collapsed": "field_faq_question",
+            "sub_fields": [
+                {
+                    "key": "field_faq_question",
+                    "label": "Question",
+                    "name": "faq_question",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "How do I start service?",
+                    "prepend": "",
+                    "append": "",
+                    "default_value": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_faq_items"
+                },
+                {
+                    "key": "field_faq_answer",
+                    "label": "Answer",
+                    "name": "faq_answer",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_faq_items"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/faqs"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the FAQs block.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1775167488
+}

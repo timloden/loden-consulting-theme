@@ -1,0 +1,17 @@
+{
+	"apiVersion": 3,
+	"name": "acf/cta-contact-form",
+	"title": "CTA Contact Form",
+	"description": "Split card with an image panel on the left and a Gravity Form on the right.",
+	"category": "loden-consulting",
+	"icon": "email",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

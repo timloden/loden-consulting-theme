@@ -1,0 +1,17 @@
+{
+	"apiVersion": 3,
+	"name": "acf/faqs",
+	"title": "FAQs",
+	"description": "Accordion FAQ section with eyebrow, title, optional CTA, and a repeater of questions and answers.",
+	"category": "loden-consulting",
+	"icon": "editor-help",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

@@ -756,6 +756,26 @@ button,
 :is(.menu .dropdown-content):before {
   display: none;
 }
+.collapse-plus  > .collapse-title:after {
+  position: absolute;
+  display: block;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collapse-plus  > .collapse-title:after {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+.collapse-plus  > .collapse-title:after {
+  top: 0.9rem;
+  inset-inline-end: 1.4rem;
+  --tw-content: "+";
+  content: var(--tw-content);
+  pointer-events: none;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -1004,6 +1024,147 @@ button,
   mask-repeat: no-repeat;
   mask-position: center;
   mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' stroke='black' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform-origin='center'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3' stroke-linecap='round'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 12 12' to='360 12 12' dur='2s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dasharray' values='0,150;42,150;42,150' keyTimes='0;0.475;1' dur='1.5s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dashoffset' values='0;-16;-59' keyTimes='0;0.475;1' dur='1.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
+}
+.collapse:not(td,tr,colgroup) {
+  visibility: revert-layer;
+}
+.collapse {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-box, 1rem);
+  width: 100%;
+  grid-template-rows: max-content 0fr;
+  grid-template-columns: minmax(0, 1fr);
+  isolation: isolate;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collapse {
+    transition: grid-template-rows 0.2s;
+  }
+}
+.collapse  > input:is([type="checkbox"],[type="radio"]) {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  appearance: none;
+  opacity: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 1rem;
+  padding-inline-end: 3rem;
+  min-height: 1lh;
+  transition: background-color 0.2s ease-out;
+}
+.collapse:is([open],[tabindex]:focus:not(.collapse-close),[tabindex]:focus-within:not(.collapse-close)),.collapse:not(.collapse-close):has( > input:is([type="checkbox"],[type="radio"]):checked) {
+  grid-template-rows: max-content 1fr;
+}
+.collapse:is([open],[tabindex]:focus:not(.collapse-close),[tabindex]:focus-within:not(.collapse-close)) > .collapse-content,.collapse:not(.collapse-close) > :where(input:is([type="checkbox"],[type="radio"]):checked ~ .collapse-content) {
+  content-visibility: visible;
+  min-height: fit-content;
+}
+@supports not (content-visibility: visible) {
+  .collapse:is([open],[tabindex]:focus:not(.collapse-close),[tabindex]:focus-within:not(.collapse-close)) > .collapse-content,.collapse:not(.collapse-close) > :where(input:is([type="checkbox"],[type="radio"]):checked ~ .collapse-content) {
+    visibility: visible;
+  }
+}
+.collapse:focus-visible,.collapse:has( > input:is([type="checkbox"],[type="radio"]):focus-visible),.collapse:has(summary:focus-visible) {
+  outline-color: var(--color-base-content);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+.collapse:not(.collapse-close)  > input[type="checkbox"],.collapse:not(.collapse-close)  > input[type="radio"]:not(:checked),.collapse:not(.collapse-close)  > .collapse-title {
+  cursor: pointer;
+}
+:is(.collapse[tabindex]:focus:not(.collapse-close,.collapse[open]),.collapse[tabindex]:focus-within:not(.collapse-close,.collapse[open]))  > .collapse-title {
+  cursor: unset;
+}
+.collapse:is([open],[tabindex]:focus:not(.collapse-close),[tabindex]:focus-within:not(.collapse-close)) > :where(.collapse-content),.collapse:not(.collapse-close) > :where(input:is([type="checkbox"],[type="radio"]):checked ~ .collapse-content) {
+  padding-bottom: 1rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collapse.collapse-arrow:is([open])  > .collapse-title:after {
+    transform: translateY(-50%) rotate(225deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collapse.collapse-open.collapse-arrow  > .collapse-title:after {
+    transform: translateY(-50%) rotate(225deg);
+  }
+}
+.collapse.collapse-open.collapse-plus  > .collapse-title:after {
+  --tw-content: "−";
+  content: var(--tw-content);
+}
+:is(.collapse.collapse-arrow[tabindex]:focus:not(.collapse-close),.collapse.collapse-arrow[tabindex]:focus-within:not(.collapse-close))  > .collapse-title:after {
+  transform: translateY(-50%) rotate(225deg);
+}
+.collapse.collapse-arrow:not(.collapse-close)  > input:is([type="checkbox"],[type="radio"]):checked ~ .collapse-title:after {
+  transform: translateY(-50%) rotate(225deg);
+}
+.collapse.collapse-plus[open]  > .collapse-title:after {
+  --tw-content: "−";
+  content: var(--tw-content);
+}
+.collapse.collapse-plus[tabindex]:focus:not(.collapse-close)  > .collapse-title:after {
+  --tw-content: "−";
+  content: var(--tw-content);
+}
+.collapse.collapse-plus:not(.collapse-close)  > input:is([type="checkbox"],[type="radio"]):checked ~ .collapse-title:after {
+  --tw-content: "−";
+  content: var(--tw-content);
+}
+.collapse:is(details) {
+  width: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collapse:is(details)::details-content {
+    transition: content-visibility 0.2s allow-discrete, visibility 0.2s allow-discrete, min-height 0.2s ease-out allow-discrete, padding 0.1s ease-out 20ms, background-color 0.2s ease-out, height 0.2s;
+    height: 0;
+    interpolate-size: allow-keywords;
+  }
+  .collapse:is(details):where([open])::details-content {
+    height: auto;
+  }
+}
+.collapse:is(details) summary {
+  position: relative;
+  display: block;
+}
+:is(.collapse:is(details) summary)::-webkit-details-marker {
+  display: none;
+}
+.collapse:is(details) > .collapse-content {
+  content-visibility: visible;
+}
+.collapse:is(details) summary {
+  outline: none;
+}
+.collapse-content {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+.collapse-content {
+  content-visibility: hidden;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  min-height: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: unset;
+}
+@supports not (content-visibility: hidden) {
+  .collapse-content {
+    visibility: hidden;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collapse-content {
+    transition: content-visibility 0.2s allow-discrete, visibility 0.2s allow-discrete, min-height 0.2s ease-out allow-discrete, padding 0.1s ease-out 20ms, background-color 0.2s ease-out;
+  }
+}
+.collapse {
+  visibility: collapse;
 }
 .visible {
   visibility: visible;
@@ -1778,6 +1939,18 @@ button,
 .swap input:checked ~ .swap-on,.swap input:indeterminate ~ .swap-indeterminate {
   opacity: 100%;
   backface-visibility: visible;
+}
+.collapse-title {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+.collapse-title {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  padding-inline-end: 3rem;
+  min-height: 1lh;
+  transition: background-color 0.2s ease-out;
 }
 .checkbox {
   border: var(--border) solid var(--input-color, var(--color-base-content));
@@ -3369,6 +3542,12 @@ button,
 .mb-10 {
   margin-bottom: calc(var(--spacing) * 10);
 }
+.mb-16 {
+  margin-bottom: calc(var(--spacing) * 16);
+}
+.mb-\[-4rem\] {
+  margin-bottom: -4rem;
+}
 .ml-1 {
   margin-left: calc(var(--spacing) * 1);
 }
@@ -3656,6 +3835,9 @@ button,
 .min-h-\[44px\] {
   min-height: 44px;
 }
+.min-h-\[280px\] {
+  min-height: 280px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3719,11 +3901,17 @@ button,
 .max-w-\[1200px\] {
   max-width: 1200px;
 }
+.max-w-full {
+  max-width: 100%;
+}
 .max-w-md {
   max-width: var(--container-md);
 }
 .max-w-none {
   max-width: none;
+}
+.max-w-prose {
+  max-width: 65ch;
 }
 .max-w-xs {
   max-width: var(--container-xs);
@@ -3800,6 +3988,9 @@ button,
 }
 .items-center {
   align-items: center;
+}
+.items-end {
+  align-items: flex-end;
 }
 .items-start {
   align-items: flex-start;
@@ -3899,6 +4090,9 @@ button,
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-visible {
+  overflow: visible;
 }
 .overflow-x-hidden {
   overflow-x: hidden;
@@ -4011,6 +4205,14 @@ button,
 .bg-dark-blue {
   background-color: var(--color-dark-blue);
 }
+.bg-dark-blue\/60 {
+  background-color: color-mix(in srgb, #12242B 60%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .bg-dark-blue\/60 {
+    background-color: color-mix(in oklab, var(--color-dark-blue) 60%, transparent);
+  }
+}
 .bg-gray-50 {
   background-color: var(--color-gray-50);
 }
@@ -4040,6 +4242,14 @@ button,
 }
 .bg-white {
   background-color: var(--color-white);
+}
+.bg-white\/20 {
+  background-color: color-mix(in srgb, #fff 20%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .bg-white\/20 {
+    background-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+  }
 }
 .bg-white\/60 {
   background-color: color-mix(in srgb, #fff 60%, transparent);
@@ -4163,6 +4373,12 @@ button,
 }
 .pt-\[250px\] {
   padding-top: 250px;
+}
+.pr-12 {
+  padding-right: calc(var(--spacing) * 12);
+}
+.pb-0 {
+  padding-bottom: calc(var(--spacing) * 0);
 }
 .pb-2 {
   padding-bottom: calc(var(--spacing) * 2);
@@ -4701,6 +4917,11 @@ button,
   }
 }
 @media (width >= 1024px) {
+  .lg\:p-10 {
+    padding: calc(var(--spacing) * 10);
+  }
+}
+@media (width >= 1024px) {
   .lg\:px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
@@ -4733,6 +4954,11 @@ button,
 @media (width >= 1024px) {
   .lg\:py-20 {
     padding-block: calc(var(--spacing) * 20);
+  }
+}
+@media (width >= 1024px) {
+  .lg\:py-24 {
+    padding-block: calc(var(--spacing) * 24);
   }
 }
 @media (width >= 1024px) {

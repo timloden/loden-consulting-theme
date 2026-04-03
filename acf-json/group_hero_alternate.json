@@ -1,0 +1,400 @@
+{
+    "key": "group_hero_alternate",
+    "title": "Hero (Alternate) Block",
+    "fields": [
+        {
+            "key": "field_ha_tab_content",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_ha_eyebrow",
+            "label": "Eyebrow",
+            "name": "ha_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label above the title (e.g. \"Ready to go pest-free?\").",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Ready to go pest-free?",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ha_text_color",
+            "label": "Text Colour",
+            "name": "ha_text_color",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Choose dark text for light backgrounds, or light (white) text for dark/image backgrounds.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "dark": "Dark (#12242B)",
+                "light": "Light (white)"
+            },
+            "default_value": "dark",
+            "return_format": "value",
+            "layout": "horizontal",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_ha_title",
+            "label": "Title",
+            "name": "ha_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main headline rendered as an H1.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Pest Control made Simple.",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ha_text",
+            "label": "Body Text",
+            "name": "ha_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Rich text body displayed below the title.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_ha_top_padding",
+            "label": "Add Top Padding for Fixed Header",
+            "name": "ha_top_padding",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enable to push hero content below the fixed navigation bar.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_ha_tab_image",
+            "label": "Image",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_ha_image",
+            "label": "Image",
+            "name": "ha_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Image displayed at the bottom-left, offset below the section with a negative bottom margin.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_ha_tab_background",
+            "label": "Background",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_ha_bg_image",
+            "label": "Background Image",
+            "name": "ha_bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Full-width background image for the hero section.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_ha_bg_image_mobile",
+            "label": "Background Image (Mobile)",
+            "name": "ha_bg_image_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Optional: a separate image used on mobile screens. Falls back to the desktop image if not set.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_ha_bg_color",
+            "label": "Background Colour",
+            "name": "ha_bg_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Fallback background colour used when no image is set.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#EBF7FD",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
+        },
+        {
+            "key": "field_ha_tab_form",
+            "label": "Form Card",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_ha_form_eyebrow",
+            "label": "Form Eyebrow",
+            "name": "ha_form_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small accent label above the form title (e.g. \"Limited Time:\").",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Limited Time:",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ha_form_title",
+            "label": "Form Title",
+            "name": "ha_form_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bold heading inside the form card.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "First Service Only $97",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ha_form_response_time",
+            "label": "Response Time Text",
+            "name": "ha_form_response_time",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Status bar text shown above the form (e.g. \"We're open now - ~5 min response time\").",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "We're open now - ~5 min response time",
+            "prepend": "",
+            "append": "",
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ha_form_tooltip",
+            "label": "Response Time Tooltip Content",
+            "name": "ha_form_tooltip",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Content shown in the tooltip when the user hovers the info icon next to the response time text.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_ha_form",
+            "label": "Gravity Form",
+            "name": "ha_form",
+            "aria-label": "",
+            "type": "forms",
+            "instructions": "Select the Gravity Form to display. Requires the \"Gravity Forms Field for ACF\" plugin.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "post_object",
+            "allow_null": 0,
+            "multiple": 0,
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/hero-alternate"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Hero (Alternate) block.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1775500100
+}
